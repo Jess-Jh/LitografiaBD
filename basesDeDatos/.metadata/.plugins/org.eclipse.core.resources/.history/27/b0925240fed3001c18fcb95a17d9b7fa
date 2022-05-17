@@ -1,0 +1,34 @@
+package co.edu.uniquindio.litografia.modelo;
+
+public class EspecificacionLitografica {
+
+	private String id;
+	private String tamano;
+	private String tipoPapel;
+	
+	public EspecificacionLitografica(String id, String tamano, String tipoPapel) {
+		this.id = id;
+		this.tamano = tamano;
+		this.tipoPapel = tipoPapel;
+	}
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getTamano() {
+		return tamano;
+	}
+	public void setTamano(String tamano) {
+		this.tamano = tamano;
+	}
+	public String getTipoPapel() {
+		return tipoPapel;
+	}
+	public void setTipoPapel(String tipoPapel) {
+		this.tipoPapel = tipoPapel;
+	}
+	
+}

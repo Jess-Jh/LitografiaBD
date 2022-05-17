@@ -1,0 +1,64 @@
+package co.edu.uniquindio.litografia.modelo;
+
+import java.util.ArrayList;
+
+public class Litografia {
+	
+	private String id;
+	private String tipoTroquelado;
+	private boolean barnizado;
+	private String tamano;
+	private String tipoPapel;
+	private ArrayList<EspecificacionLitografica> especificacionLitografica;
+	private ArrayList<Factura> listaFacturas;
+	
+	public Litografia(String id, String tipoTroquelado, boolean barnizado, String tamano, String tipoPapel,
+			ArrayList<EspecificacionLitografica> especificacionLitografica) {
+		this.id = id;
+		this.tipoTroquelado = tipoTroquelado;
+		this.barnizado = barnizado;
+		this.tamano = tamano;
+		this.tipoPapel = tipoPapel;
+		this.especificacionLitografica = especificacionLitografica;
+	}
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getTipoTroquelado() {
+		return tipoTroquelado;
+	}
+	public void setTipoTroquelado(String tipoTroquelado) {
+		this.tipoTroquelado = tipoTroquelado;
+	}
+	public boolean isBarnizado() {
+		return barnizado;
+	}
+	public void setBarnizado(boolean barnizado) {
+		this.barnizado = barnizado;
+	}
+	public String getTamano() {
+		return tamano;
+	}
+	public void setTamano(String tamano) {
+		this.tamano = tamano;
+	}
+	public String getTipoPapel() {
+		return tipoPapel;
+	}
+	public void setTipoPapel(String tipoPapel) {
+		this.tipoPapel = tipoPapel;
+	}
+	public ArrayList<EspecificacionLitografica> getEspecificacionLitografica() {
+		return especificacionLitografica;
+	}
+	public void setEspecificacionLitografica(ArrayList<EspecificacionLitografica> especificacionLitografica) {
+		this.especificacionLitografica = especificacionLitografica;
+	}
+	
+	
+
+}

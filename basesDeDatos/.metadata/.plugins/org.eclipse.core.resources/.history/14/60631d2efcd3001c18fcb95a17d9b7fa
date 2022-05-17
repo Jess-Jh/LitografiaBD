@@ -1,0 +1,10 @@
+package co.edu.uniquindio.litografia.modelo;
+
+public class MateriaPrima {
+	
+	private String id;
+	private String tipo;
+	private int cantidad;
+	private String descripcion;
+
+}

@@ -1,0 +1,11 @@
+package co.edu.uniquindio.litografia.modelo;
+
+public class Proveedor {
+	
+	private String RUT;
+	private String id;
+	private String nombre;
+	private String telefono;
+	
+
+}

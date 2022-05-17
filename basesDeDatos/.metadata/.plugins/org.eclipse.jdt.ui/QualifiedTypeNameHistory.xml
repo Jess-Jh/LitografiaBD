@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.TipoEmpleado"/>
+    <fullyQualifiedTypeName name="javafx.util.converter.LocalDateStringConverter"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Producto"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.EspecificacionLitografica"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.EspecificacionDiseno"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Devolucion"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Proveedor"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Pedido"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Factura"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.MateriaPrima"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Diseno"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Litografia"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Cliente"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Empleado"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+</qualifiedTypeNameHistroy>

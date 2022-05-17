@@ -1,0 +1,10 @@
+package co.edu.uniquindio.litografia.modelo;
+
+public class Empleado {
+	
+	private String eps;
+	private String titulo;
+	private double sueldo;
+	
+
+}

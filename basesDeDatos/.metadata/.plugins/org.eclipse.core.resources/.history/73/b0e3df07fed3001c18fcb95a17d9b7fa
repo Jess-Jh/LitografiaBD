@@ -1,0 +1,43 @@
+package co.edu.uniquindio.litografia.modelo;
+
+public class EspecificacionDiseno {
+	
+	private String id;
+	private String tamano;
+	private String tipo;
+	private String descripcion;
+	
+	public EspecificacionDiseno(String id, String tamano, String tipo, String descripcion) {
+		this.id = id;
+		this.tamano = tamano;
+		this.tipo = tipo;
+		this.descripcion = descripcion;
+	}
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getTamano() {
+		return tamano;
+	}
+	public void setTamano(String tamano) {
+		this.tamano = tamano;
+	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
+
+}

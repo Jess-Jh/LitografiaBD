@@ -1,0 +1,11 @@
+package co.edu.uniquindio.litografia.modelo;
+
+import java.time.LocalDate;
+
+public class Factura {
+	
+	private String id;
+	private LocalDate fecha;
+	private double precio;
+
+}

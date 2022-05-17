@@ -1,0 +1,12 @@
+package co.edu.uniquindio.litografia.modelo;
+
+import java.time.LocalDate;
+
+public class Devolucion {
+	
+	private String id;
+	private LocalDate fecha;
+	private String descripcion;
+	private String tipo;
+
+}

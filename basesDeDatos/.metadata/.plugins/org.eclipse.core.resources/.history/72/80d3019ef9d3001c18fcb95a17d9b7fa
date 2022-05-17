@@ -1,0 +1,10 @@
+package co.edu.uniquindio.litografia.modelo;
+
+public class EspecificacionDiseno {
+	
+	private String id;
+	private String tamano;
+	private String tipo;
+	private String descripcion;
+
+}
