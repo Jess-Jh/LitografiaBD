@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.litografia.aplicacion.PapeleriaAplicacion;
+import co.edu.uniquindio.litografia.excepciones.ClienteException;
+import co.edu.uniquindio.litografia.excepciones.ClienteNoRegistradoException;
 import co.edu.uniquindio.litografia.excepciones.DatosInvalidosException;
 import co.edu.uniquindio.litografia.modelo.Cliente;
 import co.edu.uniquindio.litografia.modelo.Factura;
@@ -31,7 +33,7 @@ public class LitografiaController implements Initializable {
 	//-------SINGLETON------------------------------------------------------>
 	
 	ModelFactoryController modelFactoryController;
-	Papeleria papeleria;;
+	Papeleria papeleria;
 	
 	public LitografiaController() {
 		modelFactoryController = ModelFactoryController.getInstance();
@@ -41,7 +43,7 @@ public class LitografiaController implements Initializable {
 	public Papeleria getPapeleria() {
 		return papeleria;
 	}
-	public void setGimnasio(Papeleria papeleria) {
+	public void setPapeleria(Papeleria papeleria) {
 		this.papeleria = papeleria;
 	}
 	//--------------------------------------------------------------------||
@@ -284,7 +286,7 @@ public class LitografiaController implements Initializable {
 		tableViewClientes.setItems(getClientes());
 	}
 	
-	 private ObservableList<Cliente> getClientes() {
+	private ObservableList<Cliente> getClientes() {		
 		listadoClientes.addAll(papeleria.getListaClientes()); 
 		return listadoClientes;
 	}
@@ -298,7 +300,6 @@ public class LitografiaController implements Initializable {
     }
 
 	private void agregarCliente(String cedula, String nombre, String apellido, String telefono, String correoElectronico) {
-		
 		try {
 			verificarDatos(cedula, nombre, apellido, telefono, correoElectronico);
 			
@@ -310,7 +311,7 @@ public class LitografiaController implements Initializable {
 			if(cliente != null) listadoClientes.add(0, cliente);
 			tableViewClientes.refresh();
 						
-		} catch (DatosInvalidosException e) {
+		} catch (DatosInvalidosException | ClienteException e) {
 			papeleriaAplicacion.mostrarMensaje("Notificación Registro de Cliente", "Información registro cliente inválida", e.getMessage(), AlertType.WARNING);
 		}
 	}
@@ -342,6 +343,86 @@ public class LitografiaController implements Initializable {
 
 	@FXML
     void actualizarCliente(ActionEvent event) {
+		if(clienteSeleccion != null) {
+			editarCliente(txtCedulaCliente.getText(), txtNombreCliente.getText(), txtApellidoCliente.getText(), txtTelefonoCliente.getText(),
+	                txtCorreoElectronicoCliente.getText());			
+		} else {
+			papeleriaAplicacion.mostrarMensaje("Actualización Cliente", "Actualización Cliente", "No se ha seleccionado ningún cliente", AlertType.WARNING);
+		}
+    }
+	
+    private void editarCliente(String cedula, String nombre, String apellido, String telefono, String correoElectronico) {
+	
+    	try {
+			verificarDatos(cedula, nombre, apellido, telefono, correoElectronico);
+			
+			Cliente cliente = modelFactoryController.actualizarCliente(cedula, nombre, apellido, telefono, correoElectronico);
+			
+			clienteSeleccion.setCedula(cedula);
+			clienteSeleccion.setNombre(nombre);
+			clienteSeleccion.setApellido(apellido);
+			clienteSeleccion.setTelefono(telefono);
+			clienteSeleccion.setCorreoElectronico(correoElectronico);
+			
+			tableViewClientes.refresh();
+			
+			papeleriaAplicacion.mostrarMensaje("Notificación Actualización Cliente", "Actualización Cliente", "El cliente " + cliente.getNombre() + " " + cliente.getApellido() 
+												+ "  ha sido actualizado con éxito", AlertType.INFORMATION); 					
+		} catch (DatosInvalidosException | ClienteNoRegistradoException e) {
+			papeleriaAplicacion.mostrarMensaje("Notificación Actualización Cliente", "Actualización Cliente", e.getMessage(), AlertType.WARNING);
+		}
+	}
+
+	@FXML
+    void consultarCliente(ActionEvent event) {
+    	String idCliente = txtCedulaCliente.getText();
+    	try {
+			validarDato(idCliente);
+			Cliente cliente = modelFactoryController.consultarCliente(idCliente);
+			
+			papeleriaAplicacion.mostrarMensaje("Notificación Búsqueda de Cliente", "Información búsqueda cliente", cliente.getNombre() + " " + cliente.getApellido() 
+												+ "\nCédula: " + cliente.getCedula() + "\nCorreo: " + cliente.getCorreoElectronico(), AlertType.INFORMATION);
+		} catch (DatosInvalidosException | ClienteNoRegistradoException e) {
+			papeleriaAplicacion.mostrarMensaje("Notificación Búsqueda de Cliente", "Información búsqueda cliente inválida", e.getMessage(), AlertType.WARNING);
+		}
+    }
+    
+    private boolean validarDato(String idCliente) throws DatosInvalidosException {
+    	if(idCliente.equalsIgnoreCase("")) {
+    		throw new DatosInvalidosException("Ingrese el número de la cédula para realizar su búsqueda"); 
+    	} else {
+    		return true;
+    	}
+	}
+
+	@FXML
+    void eliminarCliente(ActionEvent event) {
+		
+		if(clienteSeleccion != null) {
+			
+			//Confirmar que el usuario si quiere eliminar el cliente
+			boolean mensajeDeConfirmacion = papeleriaAplicacion.mostrarMensaje("Notificación Eliminar Cliente", "Eliminar Cliente", "¿Desea eliminar el cliente de la base de datos?");	
+			
+			if(mensajeDeConfirmacion == true) {
+				modelFactoryController.eliminarCliente(clienteSeleccion.getCedula());
+	    		papeleriaAplicacion.mostrarMensaje("Notificación eliminación cliente", "Eliminación Cliente", "Se ha eliminado el cliente", AlertType.INFORMATION);
+	    		
+	    		listadoClientes.remove(clienteSeleccion);
+	    		tableViewClientes.refresh();
+			} else {
+				papeleriaAplicacion.mostrarMensaje("Notificación eliminación cliente", "Eliminar Cliente", "No se ha eliminado el cliente", AlertType.WARNING);    			
+			}
+		} else {
+			papeleriaAplicacion.mostrarMensaje("Notificación eliminación cliente", "Eliminación Cliente", "No se ha seleccionado ninguna cliente", AlertType.WARNING);
+		}
+    }
+    
+	//-------------------------------------------------------------------------------------------------------------------------------------------------||
+
+    // ------------------------------------------------------------CRUD Producto ---------------------------------------------------------------------->>
+    
+    @FXML
+    void agregarProducto(ActionEvent event) {
 
     }
 
@@ -349,14 +430,51 @@ public class LitografiaController implements Initializable {
     void actualizarProducto(ActionEvent event) {
 
     }
+    
+    @FXML
+    void consultarProducto(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void eliminarProducto(ActionEvent event) {
+
+    }
+    //-------------------------------------------------------------------------------------------------------------------------------------------------||
+
+    // -----------------------------------------------------------------CRUD Proveedor ------------------------------------------------------------->>
+  
+    @FXML
+    void agregarProveedor(ActionEvent event) {
+
+    }
 
     @FXML
     void actualizarProveedor(ActionEvent event) {
 
     }
+    
+    @FXML
+    void consultarProveedor(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void eliminarProveedor(ActionEvent event) {
+
+    }
+    
+	//-------------------------------------------------------------------------------------------------------------------------------------------------||
+
+    // ------------------------------------------------------------CRUD Factura ---------------------------------------------------------------------->>
 
     @FXML
-    void agregarProducto(ActionEvent event) {
+    void guardarFactura(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void eliminarFactura(ActionEvent event) {
 
     }
 
@@ -366,52 +484,7 @@ public class LitografiaController implements Initializable {
     }
 
     @FXML
-    void agregarProveedor(ActionEvent event) {
-
-    }
-
-    @FXML
-    void consultarCliente(ActionEvent event) {
-
-    }
-
-    @FXML
-    void consultarProducto(ActionEvent event) {
-
-    }
-
-    @FXML
-    void consultarProveedor(ActionEvent event) {
-
-    }
-
-    @FXML
-    void eliminarCliente(ActionEvent event) {
-
-    }
-
-    @FXML
     void eliminarDetalleFactura(ActionEvent event) {
-
-    }
-
-    @FXML
-    void eliminarFactura(ActionEvent event) {
-
-    }
-
-    @FXML
-    void eliminarProducto(ActionEvent event) {
-
-    }
-
-    @FXML
-    void eliminarProveedor(ActionEvent event) {
-
-    }
-
-    @FXML
-    void guardarFactura(ActionEvent event) {
 
     }
 
@@ -419,6 +492,7 @@ public class LitografiaController implements Initializable {
     void pagarFactura(ActionEvent event) {
 
     }
+    //-------------------------------------------------------------------------------------------------------------------------------------------------||
 
 
 

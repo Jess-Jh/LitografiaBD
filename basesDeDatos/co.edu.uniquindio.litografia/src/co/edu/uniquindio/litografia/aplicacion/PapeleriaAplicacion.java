@@ -24,6 +24,11 @@ public class PapeleriaAplicacion extends Application {
 	ModelFactoryController modelFactoryController;
 	private Papeleria papeleria;
 	
+	public PapeleriaAplicacion() {
+		modelFactoryController = ModelFactoryController.getInstance();
+		papeleria = modelFactoryController.getPapeleria();		
+	}
+	
 	public Papeleria getPapeleria() {
 		return papeleria;
 	}

@@ -3044,3 +3044,1109 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResou
 	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
 	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:421)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+
+!ENTRY org.eclipse.jdt.core 4 2 2022-05-19 23:14:31.678
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:112)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 4 2022-05-19 23:14:31.696
+!MESSAGE Exception occurred in listener of Java element change notification
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:112)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 2 2022-05-19 23:16:46.635
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:112)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 4 2022-05-19 23:16:46.639
+!MESSAGE Exception occurred in listener of Java element change notification
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:112)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 2 2022-05-19 23:17:24.102
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:112)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 4 2022-05-19 23:17:24.107
+!MESSAGE Exception occurred in listener of Java element change notification
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:112)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 2 2022-05-19 23:17:28.302
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:112)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 4 2022-05-19 23:17:28.304
+!MESSAGE Exception occurred in listener of Java element change notification
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:112)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 2 2022-05-19 23:17:33.515
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:112)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 4 2022-05-19 23:17:33.516
+!MESSAGE Exception occurred in listener of Java element change notification
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:112)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 2 2022-05-19 23:21:52.323
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:189)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:125)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:144)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:421)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+
+!ENTRY org.eclipse.jdt.core 4 4 2022-05-19 23:21:52.325
+!MESSAGE Exception occurred in listener of Java element change notification
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:189)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:125)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:144)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:421)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+!SESSION 2022-05-20 10:55:19.666 -----------------------------------------------
+eclipse.buildId=4.23.0.I20220308-0310
+java.version=17
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CO
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2022-05-20 10:55:44.718
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-05-20 10:55:44.718
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@34dda1b4,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@193d73d3,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-05-20 10:55:44.719
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5cb4ba80,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@978475b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-05-20 10:56:07.340
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\JK'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jdt.core 4 2 2022-05-20 11:28:20.593
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:189)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:125)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:144)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:421)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+
+!ENTRY org.eclipse.jdt.core 4 4 2022-05-20 11:28:20.596
+!MESSAGE Exception occurred in listener of Java element change notification
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:189)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:125)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:144)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:421)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+
+!ENTRY org.eclipse.jdt.core 4 2 2022-05-20 11:33:02.702
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:189)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:125)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:144)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:421)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+
+!ENTRY org.eclipse.jdt.core 4 4 2022-05-20 11:33:02.707
+!MESSAGE Exception occurred in listener of Java element change notification
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:189)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:125)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:144)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:421)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+
+!ENTRY org.eclipse.jdt.core 4 2 2022-05-20 12:12:34.780
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:112)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 4 2022-05-20 12:12:34.782
+!MESSAGE Exception occurred in listener of Java element change notification
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:112)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 2 2022-05-20 12:14:51.779
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:112)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 4 2022-05-20 12:14:51.781
+!MESSAGE Exception occurred in listener of Java element change notification
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:112)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 2 2022-05-20 12:15:03.111
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:189)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:125)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:144)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:421)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+
+!ENTRY org.eclipse.jdt.core 4 4 2022-05-20 12:15:03.135
+!MESSAGE Exception occurred in listener of Java element change notification
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.resources.IResource.exists()" because the return value of "org.eclipse.jdt.core.ICompilationUnit.getCorrespondingResource()" is null
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.compilationUnitResourceExists(AbstractJpaProject.java:1438)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaCompilationUnitDeltaIsRelevant(AbstractJpaProject.java:1427)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaCompilationUnitDeltaIsRelevant(InternalJpaProjectManager.java:1008)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaCompilationUnitDelta(InternalJpaProjectManager.java:1000)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaDelta(InternalJpaProjectManager.java:935)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.handleJavaElementChangedEvent(InternalJpaProjectManager.java:918)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged(InternalJpaProjectManager.java:861)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaElementChangeListener.elementChanged(InternalJpaProjectManager.java:1387)
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1755)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1743)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fireReconcileDelta(DeltaProcessor.java:1594)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1553)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:781)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:189)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:125)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:144)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:98)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:421)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+!SESSION 2022-05-20 12:19:15.321 -----------------------------------------------
+eclipse.buildId=4.23.0.I20220308-0310
+java.version=17
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CO
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2022-05-20 12:19:34.151
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-05-20 12:19:34.151
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5cb4ba80,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@978475b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-05-20 12:19:34.151
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@507187c1,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2220c5f7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-05-20 12:19:47.608
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\JK'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jdt.ui 2 0 2022-05-20 12:27:59.893
+!MESSAGE The 'org.eclipse.mylyn.java.ui.javaAllCompletionProposalComputer' proposal computer from the 'org.eclipse.mylyn.java.ui' plug-in did not complete normally. The extension took too long to return from the 'computeCompletionProposals()' operation.
+
+!ENTRY org.eclipse.e4.ui.workbench 4 2 2022-05-20 13:54:51.177
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.e4.ui.workbench".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.expressions.IEvaluationContext.getDefaultVariable()" because "this.evalContext" is null
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.getCurrentState(LegacyHandlerService.java:572)
+	at org.eclipse.egit.ui.internal.selection.SelectionUtils.getEvaluationContext(SelectionUtils.java:534)
+	at org.eclipse.egit.ui.internal.selection.SelectionUtils.getStructuredSelection(SelectionUtils.java:237)
+	at org.eclipse.egit.ui.internal.selection.RepositorySourceProvider.selectionChanged(RepositorySourceProvider.java:90)
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.notifyListeners(SelectionService.java:266)
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.handleSelectionChanged(SelectionService.java:98)
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.lambda$0(SelectionService.java:72)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator$1.run(SelectionAggregator.java:123)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator.notifyListeners(SelectionAggregator.java:120)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator$5.lambda$0(SelectionAggregator.java:220)
+	at org.eclipse.e4.core.contexts.RunAndTrack.runExternalCode(RunAndTrack.java:59)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator$5.changed(SelectionAggregator.java:220)
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.update(TrackableComputationExt.java:105)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.runAndTrack(EclipseContext.java:338)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator.track(SelectionAggregator.java:205)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator.setPart(SelectionAggregator.java:114)
+	at jdk.internal.reflect.GeneratedMethodAccessor60.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.contexts.ContextObjectSupplier$ContextInjectionListener.update(ContextObjectSupplier.java:95)
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.update(TrackableComputationExt.java:103)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.processScheduled(EclipseContext.java:356)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.dispose(EclipseContext.java:180)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.clearContext(PartRenderingEngine.java:986)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:959)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ElementReferenceRenderer.disposeWidget(ElementReferenceRenderer.java:113)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:938)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:900)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:900)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:893)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:900)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:900)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:900)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:900)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:2087)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1719)
+	at org.eclipse.ui.internal.WorkbenchWindow.lambda$5(WorkbenchWindow.java:1743)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1743)
+	at org.eclipse.ui.internal.Workbench$11.run(Workbench.java:1108)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:1091)
+	at org.eclipse.ui.internal.Workbench.lambda$4(Workbench.java:1392)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1392)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1368)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1716)
+	at org.eclipse.ui.internal.WorkbenchWindow.lambda$5(WorkbenchWindow.java:1743)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1743)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1752)
+	at org.eclipse.ui.internal.WorkbenchWindow.lambda$2(WorkbenchWindow.java:503)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer.lambda$4(WBWRenderer.java:570)
+	at org.eclipse.swt.events.ShellListener$2.shellClosed(ShellListener.java:102)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:102)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4243)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1063)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1087)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1072)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:269)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1552)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4748)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:340)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1480)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2286)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5015)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(Native Method)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:508)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4847)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:340)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1480)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2286)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5015)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(Native Method)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:508)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4847)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:340)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1480)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2286)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5015)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3630)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.e4.ui.workbench 4 0 2022-05-20 13:54:51.183
+!MESSAGE Cannot invoke "org.eclipse.core.expressions.IEvaluationContext.getDefaultVariable()" because "this.evalContext" is null
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.core.expressions.IEvaluationContext.getDefaultVariable()" because "this.evalContext" is null
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.getCurrentState(LegacyHandlerService.java:572)
+	at org.eclipse.egit.ui.internal.selection.SelectionUtils.getEvaluationContext(SelectionUtils.java:534)
+	at org.eclipse.egit.ui.internal.selection.SelectionUtils.getStructuredSelection(SelectionUtils.java:237)
+	at org.eclipse.egit.ui.internal.selection.RepositorySourceProvider.selectionChanged(RepositorySourceProvider.java:90)
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.notifyListeners(SelectionService.java:266)
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.handleSelectionChanged(SelectionService.java:98)
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.lambda$0(SelectionService.java:72)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator$1.run(SelectionAggregator.java:123)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator.notifyListeners(SelectionAggregator.java:120)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator$5.lambda$0(SelectionAggregator.java:220)
+	at org.eclipse.e4.core.contexts.RunAndTrack.runExternalCode(RunAndTrack.java:59)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator$5.changed(SelectionAggregator.java:220)
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.update(TrackableComputationExt.java:105)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.runAndTrack(EclipseContext.java:338)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator.track(SelectionAggregator.java:205)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator.setPart(SelectionAggregator.java:114)
+	at jdk.internal.reflect.GeneratedMethodAccessor60.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.contexts.ContextObjectSupplier$ContextInjectionListener.update(ContextObjectSupplier.java:95)
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.update(TrackableComputationExt.java:103)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.processScheduled(EclipseContext.java:356)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.dispose(EclipseContext.java:180)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.clearContext(PartRenderingEngine.java:986)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:959)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ElementReferenceRenderer.disposeWidget(ElementReferenceRenderer.java:113)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:938)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:900)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:900)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:893)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:900)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:900)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:900)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeRemoveGui(PartRenderingEngine.java:900)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:861)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.removeGui(PartRenderingEngine.java:845)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:2087)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1719)
+	at org.eclipse.ui.internal.WorkbenchWindow.lambda$5(WorkbenchWindow.java:1743)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1743)
+	at org.eclipse.ui.internal.Workbench$11.run(Workbench.java:1108)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:1091)
+	at org.eclipse.ui.internal.Workbench.lambda$4(Workbench.java:1392)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1392)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1368)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1716)
+	at org.eclipse.ui.internal.WorkbenchWindow.lambda$5(WorkbenchWindow.java:1743)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1743)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1752)
+	at org.eclipse.ui.internal.WorkbenchWindow.lambda$2(WorkbenchWindow.java:503)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer.lambda$4(WBWRenderer.java:570)
+	at org.eclipse.swt.events.ShellListener$2.shellClosed(ShellListener.java:102)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:102)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4243)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1063)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1087)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1072)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:269)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1552)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4748)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:340)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1480)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2286)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5015)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(Native Method)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:508)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4847)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:340)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1480)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2286)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5015)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(Native Method)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:508)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4847)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:340)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1480)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2286)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5015)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3630)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+!SESSION 2022-05-20 15:11:40.886 -----------------------------------------------
+eclipse.buildId=4.23.0.I20220308-0310
+java.version=17
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CO
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2022-05-20 15:12:09.115
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-05-20 15:12:09.116
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3c4231e5,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@397f9672,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-05-20 15:12:09.116
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@72e4ffa2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@34dda1b4,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-05-20 15:12:24.582
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\JK'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.

@@ -2,6 +2,9 @@ package co.edu.uniquindio.litografia.modelo;
 
 import java.util.ArrayList;
 
+import co.edu.uniquindio.litografia.excepciones.ClienteException;
+import co.edu.uniquindio.litografia.excepciones.ClienteNoRegistradoException;
+
 public class Papeleria {
 	
 	private ArrayList<Cliente> listaClientes;
@@ -17,12 +20,7 @@ public class Papeleria {
 	private ArrayList<Producto> listaProductos;
 	private ArrayList<Proveedor> listaProveedores;
 	
-	public Papeleria(ArrayList<Cliente> listaClientes, ArrayList<Devolucion> listaDevoluciones,
-			ArrayList<Diseno> listaDisenos, ArrayList<Empleado> listaEmpleados,
-			ArrayList<EspecificacionDiseno> listaEspecificacionesDisenos,
-			ArrayList<EspecificacionLitografica> listaEspecificacionesLitograficas, ArrayList<Factura> listaFacturas,
-			ArrayList<Litografia> listaLitografias, ArrayList<MateriaPrima> listaMateriasPrimas,
-			ArrayList<Pedido> listaPedidos, ArrayList<Producto> listaProductos, ArrayList<Proveedor> listaProveedores) {
+	public Papeleria() {
 		
 		this.listaClientes = new ArrayList<>();
 		this.listaDevoluciones = new ArrayList<>();
@@ -36,6 +34,9 @@ public class Papeleria {
 		this.listaPedidos = new ArrayList<>();
 		this.listaProductos = new ArrayList<>();
 		this.listaProveedores = new ArrayList<>();
+		
+		Cliente cliente = new Cliente("2141243", "241243", "sdfasdfsaf", "sfasdfasf", "sdfasfdasf");
+		getListaClientes().add(cliente);
 	}
 	
 	public ArrayList<Cliente> getListaClientes() {
@@ -112,10 +113,65 @@ public class Papeleria {
 		this.listaProveedores = listaProveedores;
 	}
 
-	public Cliente agregarCliente() {
-		// TODO Auto-generated method stub
+	// ------------------------------------------------------------CRUD Cliente ------------------------------------------------------------->>
+	
+	public Cliente agregarCliente(String cedula, String nombre, String apellido, String telefono, String correoElectronico) throws ClienteException {
+		if(existeCliente(cedula)) {
+			throw new ClienteException("El cliente con cédula " + cedula + " ya se encuentra registrado");
+		} else {
+			Cliente nuevoCliente = new Cliente(cedula, nombre, apellido, telefono, correoElectronico);
+			listaClientes.add(nuevoCliente);
+			return nuevoCliente;
+		}
+	}
+	
+	private boolean existeCliente(String id) {
+		for(Cliente cliente : listaClientes) {
+			if(cliente.getCedula().equalsIgnoreCase(id))
+				return true;
+		}
+		return false;
+	}
+
+	public Cliente obtenerCliente(String idCliente) {
+		for (Cliente cliente : listaClientes) {
+			if(cliente.getCedula().equalsIgnoreCase(idCliente)) 
+				return cliente;
+		}
 		return null;
 	}
+
+	public Cliente actualizarCliente(String cedula, String nombre, String apellido, String telefono,
+			String correoElectronico) throws ClienteNoRegistradoException {
+		
+		Cliente cliente = obtenerCliente(cedula);
+		
+		if(cliente != null) {
+			cliente.setCedula(cedula);
+			cliente.setNombre(nombre);
+			cliente.setApellido(apellido);
+			cliente.setTelefono(telefono);
+			cliente.setCorreoElectronico(correoElectronico);
+
+			return cliente;
+		} else {
+			throw new ClienteNoRegistradoException("El cliente que al que le desea actualizar los datos no se encuentra registrado");
+		}
+	}
+
+	public boolean eliminarCliente(String cedula) {
+		
+		Boolean clienteEliminado = false;
+		Cliente cliente = obtenerCliente(cedula);
+		
+		if(cliente != null) {
+			getListaClientes().remove(cliente);
+			clienteEliminado = true;
+		}
+		return clienteEliminado;
+	}
+	
+	// --------------------------------------------------------------------------------------------------------------------------------------------------||
 	
 	
 
