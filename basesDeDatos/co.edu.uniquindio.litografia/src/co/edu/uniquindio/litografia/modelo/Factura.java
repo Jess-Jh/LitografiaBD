@@ -9,8 +9,8 @@ public class Factura {
 	private LocalDate fecha;
 	private double precio;
 	private ArrayList<Producto> listaProductos;
-	private ArrayList<Diseno> listadiDisenos;
-	private ArrayList<Litografia> listalLitografias;
+	private ArrayList<Diseno> listaDisenos;
+	private ArrayList<Litografia> listaLitografias;
 	private Cliente cliente;
 	private ArrayList<Empleado> listaEmpleados;
 	
@@ -22,8 +22,8 @@ public class Factura {
 		this.fecha = fecha;
 		this.precio = precio;
 		this.listaProductos = new ArrayList<>();
-		this.listadiDisenos = new ArrayList<>();
-		this.listalLitografias = new ArrayList<>();
+		this.listaDisenos = new ArrayList<>();
+		this.listaLitografias = new ArrayList<>();
 		this.cliente = cliente;
 		this.listaEmpleados = new ArrayList<>();
 	}
@@ -53,16 +53,16 @@ public class Factura {
 		this.listaProductos = listaProductos;
 	}
 	public ArrayList<Diseno> getListadiDisenos() {
-		return listadiDisenos;
+		return listaDisenos;
 	}
 	public void setListadiDisenos(ArrayList<Diseno> listadiDisenos) {
-		this.listadiDisenos = listadiDisenos;
+		this.listaDisenos = listadiDisenos;
 	}
 	public ArrayList<Litografia> getListalLitografias() {
-		return listalLitografias;
+		return listaLitografias;
 	}
 	public void setListalLitografias(ArrayList<Litografia> listalLitografias) {
-		this.listalLitografias = listalLitografias;
+		this.listaLitografias = listalLitografias;
 	}
 	public Cliente getCliente() {
 		return cliente;

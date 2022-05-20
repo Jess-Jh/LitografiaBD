@@ -13,9 +13,7 @@ public class Cliente {
 	private ArrayList<EspecificacionDiseno> listaEspecificacionDisenos;
 	private ArrayList<EspecificacionLitografica> listaEspecificacionLitograficas;
 	
-	public Cliente(String cedula, String nombre, String apellido, String telefono, String correoElectronico,
-			ArrayList<Factura> listaFacturas, ArrayList<EspecificacionDiseno> listaEspecificacionDisenos,
-			ArrayList<EspecificacionLitografica> listaEspecificacionLitograficas) {
+	public Cliente(String cedula, String nombre, String apellido, String telefono, String correoElectronico) {
 		this.cedula = cedula;
 		this.nombre = nombre;
 		this.apellido = apellido;

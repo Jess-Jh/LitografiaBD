@@ -12,16 +12,19 @@ public class Empleado {
 	private double sueldo;
 	private TipoEmpleado tipo;
 	private String direccion;
+	private String usuario;
+	private String contrasena;
+	private boolean inicioSesion = false;
 	private ArrayList<EspecificacionLitografica>listaEspecificacionLitograficas;
 	private ArrayList<EspecificacionDiseno> listaEspecificacionDisenos;
 	private ArrayList<Factura> listaFacturas;
 	private ArrayList<Pedido> listaPedidos;
 	private ArrayList<Devolucion> listaDevoluciones;
 	
-	public Empleado(String cedula, String nombre, String apellido, String eps, String titulo, double sueldo,
-			TipoEmpleado tipo, String direccion, ArrayList<EspecificacionLitografica> listaEspecificacionLitograficas,
-			ArrayList<EspecificacionDiseno> listaEspecificacionDisenos, ArrayList<Factura> listaFacturas,
-			ArrayList<Pedido> listaPedidos, ArrayList<Devolucion> listaDevoluciones) {
+	public Empleado(String cedula, String nombre, String apellido, String eps, String titulo, double sueldo, TipoEmpleado tipo, String direccion, String usuario, 
+			String contrasena, boolean inicioSesion, ArrayList<EspecificacionLitografica> listaEspecificacionLitograficas, ArrayList<EspecificacionDiseno> listaEspecificacionDisenos, 
+			ArrayList<Factura> listaFacturas, ArrayList<Pedido> listaPedidos, ArrayList<Devolucion> listaDevoluciones) {
+		
 		this.cedula = cedula;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -30,11 +33,14 @@ public class Empleado {
 		this.sueldo = sueldo;
 		this.tipo = tipo;
 		this.direccion = direccion;
-		this.listaEspecificacionLitograficas = new ArrayList<>();
-		this.listaEspecificacionDisenos = new ArrayList<>();
-		this.listaFacturas = new ArrayList<>();
-		this.listaPedidos = new ArrayList<>();
-		this.listaDevoluciones = new ArrayList<>();
+		this.usuario = usuario;
+		this.contrasena = contrasena;
+		this.inicioSesion = inicioSesion;
+		this.listaEspecificacionLitograficas = listaEspecificacionLitograficas;
+		this.listaEspecificacionDisenos = listaEspecificacionDisenos;
+		this.listaFacturas = listaFacturas;
+		this.listaPedidos = listaPedidos;
+		this.listaDevoluciones = listaDevoluciones;
 	}
 	
 	public String getCedula() {
@@ -85,6 +91,24 @@ public class Empleado {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	public String getContrasena() {
+		return contrasena;
+	}
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+	public boolean isInicioSesion() {
+		return inicioSesion;
+	}
+	public void setInicioSesion(boolean inicioSesion) {
+		this.inicioSesion = inicioSesion;
+	}
 	public ArrayList<EspecificacionLitografica> getListaEspecificacionLitograficas() {
 		return listaEspecificacionLitograficas;
 	}
@@ -115,6 +139,7 @@ public class Empleado {
 	public void setListaDevoluciones(ArrayList<Devolucion> listaDevoluciones) {
 		this.listaDevoluciones = listaDevoluciones;
 	}
+
 	
 	
 

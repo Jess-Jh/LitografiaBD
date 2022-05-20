@@ -18,11 +18,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="563.0" prefWidth="1055.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="545.0" prefWidth="1055.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.litografia.controladores.LitografiaController">
    <children>
-      <Pane layoutX="1.0" layoutY="11.0" prefHeight="556.0" prefWidth="1046.0">
+      <Pane layoutX="2.0" layoutY="3.0" prefHeight="556.0" prefWidth="1046.0">
          <children>
-            <TabPane layoutX="-4.0" prefHeight="553.0" prefWidth="1055.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane layoutX="-4.0" layoutY="-2.0" prefHeight="559.0" prefWidth="1055.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Cliente">
                   <content>
@@ -291,7 +291,7 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="525.0" prefWidth="1058.0">
                            <children>
-                              <SplitPane dividerPositions="0.6330798479087453" orientation="VERTICAL" prefHeight="528.0" prefWidth="1055.0">
+                              <SplitPane dividerPositions="0.6254752851711026" orientation="VERTICAL" prefHeight="528.0" prefWidth="1055.0">
                                 <items>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="201.0" prefWidth="1053.0" style="-fx-background-color: #B4B9D3;">
                                        <children>
@@ -311,8 +311,14 @@
                                           </Pane>
                                           <Pane layoutX="49.0" layoutY="106.0" prefHeight="158.0" prefWidth="557.0" style="-fx-background-radius: 10px; -fx-background-color: #000E68;">
                                              <children>
-                                                <ComboBox fx:id="cmbClienteFactura" layoutX="136.0" layoutY="104.0" prefHeight="25.0" prefWidth="381.0" style="-fx-background-color: white;" />
-                                                <DatePicker fx:id="txtFechaFactura" layoutX="137.0" layoutY="65.0" prefHeight="25.0" prefWidth="381.0" style="-fx-background-color: white;" />
+                                                <ComboBox fx:id="cmbClienteFactura" layoutX="136.0" layoutY="104.0" prefHeight="25.0" prefWidth="381.0" style="-fx-background-color: white;">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor></ComboBox>
+                                                <DatePicker fx:id="txtFechaFactura" layoutX="137.0" layoutY="65.0" prefHeight="25.0" prefWidth="381.0" style="-fx-background-color: white;">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor></DatePicker>
                                                 <TextField fx:id="txtIdFactura" layoutX="136.0" layoutY="31.0" prefHeight="25.0" prefWidth="381.0" style="-fx-background-color: white;" />
                                                 <Label layoutX="36.0" layoutY="105.0" text="Cliente:" textFill="WHITE">
                                                    <font>
@@ -347,6 +353,9 @@
                                              <font>
                                                 <Font name="System Bold" size="14.0" />
                                              </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </Button>
                                           <Button fx:id="btnGuardarFactura" layoutX="377.0" layoutY="252.0" mnemonicParsing="false" onAction="#guardarFactura" prefHeight="25.0" prefWidth="204.0" style="-fx-background-color: white; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px;" text="Guardar" textFill="#000e68">
                                              <cursor>
@@ -382,7 +391,7 @@
                                                       <Font name="System Bold" size="19.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="txtTotalFactura" layoutX="557.0" layoutY="279.0" text="Total ">
+                                                <Label id="txtTotalFactura" fx:id="txtTotalFactura" layoutX="557.0" layoutY="279.0" prefHeight="26.0" prefWidth="83.0">
                                                    <font>
                                                       <Font size="17.0" />
                                                    </font>
@@ -395,6 +404,11 @@
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
                                                 </Button>
+                                                <Label id="txtIdFacturaDetalle" layoutX="186.0" layoutY="12.0" prefHeight="17.0" prefWidth="101.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
                                              </children></Pane>
                                           <Pane layoutX="406.0" layoutY="84.0" prefHeight="160.0" prefWidth="257.0" style="-fx-background-color: #000E68; -fx-background-radius: 10px;">
                                              <children>
@@ -421,6 +435,11 @@
                                                       <Cursor fx:constant="HAND" />
                                                    </cursor>
                                                 </Button>
+                                                <Label id="txtTotalFactura" fx:id="txtProductoSeleccionado" layoutX="105.0" layoutY="16.0" prefHeight="26.0" prefWidth="135.0" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Label>
                                              </children>
                                           </Pane>
                                           <TableView fx:id="tableViewDetalleFactura" layoutX="29.0" layoutY="49.0" prefHeight="224.0" prefWidth="361.0">
@@ -445,6 +464,11 @@
                               </SplitPane>
                            </children>
                         </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Reportes">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                     </content>
                   </Tab>
               </tabs>
