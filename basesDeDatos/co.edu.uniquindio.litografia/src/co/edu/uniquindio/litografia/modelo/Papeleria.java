@@ -10,6 +10,7 @@ import co.edu.uniquindio.litografia.excepciones.ProductoException;
 import co.edu.uniquindio.litografia.excepciones.ProductoNoRegistradoException;
 import co.edu.uniquindio.litografia.excepciones.ProveedorException;
 import co.edu.uniquindio.litografia.excepciones.ProveedorNoRegistradoException;
+import javafx.collections.ObservableList;
 
 public class Papeleria {
 	
@@ -342,6 +343,20 @@ public class Papeleria {
 			facturaEliminado = true;
 		}
 		return facturaEliminado;
+	}
+
+	public Factura agregarDetalleFactura(String idFactura, ObservableList<Producto> listadoDetalleFactura, double valorFactura) {
+		Factura facturaSeleccionada = null;
+		for (Factura factura : listaFacturas) {
+			if(factura.getId().equalsIgnoreCase(idFactura)) {
+				facturaSeleccionada = factura;
+				
+				facturaSeleccionada.getListaProductos().addAll(listadoDetalleFactura);
+				facturaSeleccionada.setPrecio(valorFactura);
+			}
+		}
+		
+		return facturaSeleccionada;
 	}	
 
 }

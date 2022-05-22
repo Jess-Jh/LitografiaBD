@@ -18,7 +18,6 @@ public class Factura {
 	public Factura(String id, LocalDate fecha, Cliente cliente, String cedulaCliente) {
 		this.id = id;
 		this.fecha = fecha;
-		this.precio = precio;
 		this.cliente = cliente;
 		this.cedulaCliente = cliente.getCedula();
 		this.listaProductos = new ArrayList<>();

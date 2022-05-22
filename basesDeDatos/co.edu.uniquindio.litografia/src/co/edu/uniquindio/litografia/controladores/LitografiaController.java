@@ -207,6 +207,9 @@ public class LitografiaController implements Initializable {
     
     @FXML
     private Label txtIdFacturaSeleccionada;
+    
+    @FXML
+    private Label txtIdFacturaSeleccionada1;
 
     @FXML
     private TextField txtIdProducto;
@@ -321,43 +324,28 @@ public class LitografiaController implements Initializable {
 			}
 		});
 		//--------------------------------------------------------------------------------------------------------------------------------||
-		//----------------------------------------- Facturas --------------------------------------------------------------------------->>
-//		if(papeleria.getListaFacturas() != null) {
-//			this.columnIdFactura.setCellValueFactory(new PropertyValueFactory<>("id"));
-//			this.columnFechaFactura.setCellValueFactory(new PropertyValueFactory<>("fecha"));
-//			this.columnClienteFactura.setCellValueFactory(new PropertyValueFactory<>("cedulaCliente"));
-//			
-//			//Obtener seleccion de la tabla
-//			tableViewFacturas.getSelectionModel().selectedItemProperty().addListener((obs, oldSeletion, newSelection) -> {
-//				if(newSelection != null) {
-//					facturaSeleccion = newSelection;
-//					if(facturaSeleccion != null) txtIdFacturaSeleccionada.setText("Id factura seleccionada: " + facturaSeleccion.getId());
-//					mostrarInformacionFactura();
-//				}
-//			});	
-//			// Configurar el Spinner de 0-100
-//			SpinnerValueFactory<Integer> gradesValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100);
-//			spnCantidadProductos.setValueFactory(gradesValueFactory);
-//			spnCantidadProductos.setEditable(true);
-//		}
-		//--------------------------------------------------------------------------------------------------------------------------------||
-		//----------------------------------------- Facturas --------------------------------------------------------------------------->>
+		// ----------------------------------------- Facturas --------------------------------------------------------------------------->>
 		if(papeleria.getListaFacturas() != null) {
 			this.columnIdFactura.setCellValueFactory(new PropertyValueFactory<>("id"));
 			this.columnFechaFactura.setCellValueFactory(new PropertyValueFactory<>("fecha"));
 			this.columnClienteFactura.setCellValueFactory(new PropertyValueFactory<>("cedulaCliente"));
 			
-			if(papeleria.getListaProductos() != null) {
-				this.columnProductoDetalleFactura.setCellValueFactory(new PropertyValueFactory<>("tipo"));
-				this.columnCantidadDetalleFactura.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
-			}
-			
 			//Obtener seleccion de la tabla
 			tableViewFacturas.getSelectionModel().selectedItemProperty().addListener((obs, oldSeletion, newSelection) -> {
 				if(newSelection != null) {
 					facturaSeleccion = newSelection;
-					if(facturaSeleccion != null) txtIdFacturaSeleccionada.setText("Id factura seleccionada: " + facturaSeleccion.getId());
-					mostrarInformacionFactura();
+					if(facturaSeleccion != null) {
+						txtIdFacturaSeleccionada1.setText("Id factura seleccionada: ");
+						txtIdFacturaSeleccionada.setText(facturaSeleccion.getId());
+						
+						//----------------------------------------- Detalle Factura--------------------------------------------------------------------------->>
+						if(facturaSeleccion.getListaProductos() != null) {
+							this.columnProductoDetalleFactura.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+							this.columnCantidadDetalleFactura.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+						//--------------------------------------------------------------------------------------------------------------------------------||
+						mostrarInformacionFactura();
+						}
+					}
 				}
 			});	
 			// Configurar el Spinner de 0-100
@@ -420,7 +408,6 @@ public class LitografiaController implements Initializable {
     private void mostrarInformacionFactura() {
 		if(facturaSeleccion != null) {
 			txtIdFactura.setText(facturaSeleccion.getId());
-			txtIdFactura.setDisable(true);
 			
 			//Convertir fecha para mostrar en la interfaz
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -985,7 +972,7 @@ public class LitografiaController implements Initializable {
 		for (Producto producto : listadoDetalleFactura) {
 			total += producto.getPrecio() * producto.getCantidad(); 
 		}
-		txtTotalFactura.setText(String.valueOf("$ " + total));
+		txtTotalFactura.setText(String.valueOf(total));
 	}
 
 	private boolean validarSeleccion(String productoSeleccionado, Integer spinner) throws DatosInvalidosException {
@@ -996,7 +983,7 @@ public class LitografiaController implements Initializable {
 			notificacion += "Seleccione un producto de la lista\n";
 		}
 		if(spinner <= 0) {
-			notificacion += "La cantidad debe ser mayor a cero(0)\n";
+			notificacion += "La cantidad debe ser mayor a cero (0)\n";
 		}
 		if(notificacion.equals("")) {
 			return true;
@@ -1016,7 +1003,26 @@ public class LitografiaController implements Initializable {
 
     @FXML
     void pagarFactura(ActionEvent event) {
-
+    	
+    	if(txtIdFacturaSeleccionada.getText() == null || txtIdFacturaSeleccionada.getText().equals("") || txtIdFacturaSeleccionada.getText().isEmpty()) {
+    		papeleriaAplicacion.mostrarMensaje("Notificación Pago Factura", "Pagar Factura", "Seleccione la factura a la que desea agregarle la venta" ,AlertType.WARNING);
+    	} else {
+    		String idFactura = txtIdFacturaSeleccionada.getText();
+    		double valorFactura = Double.valueOf(txtTotalFactura.getText());
+    		Factura factura = modelFactoryController.agregarDetalleFactura(idFactura, listadoDetalleFactura, valorFactura);
+    		
+    		papeleriaAplicacion.mostrarMensaje("Notificación Pago Factura", "Pago Factura", "Se ha cancelado la factura " + factura.getId() + " con un valor de "
+    											+ factura.getPrecio(),AlertType.WARNING);
+    		
+    		txtIdFacturaSeleccionada.setText("");
+    		txtIdFacturaSeleccionada1.setText("");
+    		txtTotalFactura.setText("");
+    		txtProductoSeleccionado.setText("");
+    		
+    		listadoDetalleFactura.clear();
+    		tableViewDetalleFactura.setItems(listadoDetalleFactura);
+    		tableViewDetalleFactura.refresh();
+    	}
     }
     //-------------------------------------------------------------------------------------------------------------------------------------------------||
 

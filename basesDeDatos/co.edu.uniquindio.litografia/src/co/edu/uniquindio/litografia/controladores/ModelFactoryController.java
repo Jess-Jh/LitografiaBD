@@ -15,6 +15,7 @@ import co.edu.uniquindio.litografia.modelo.Factura;
 import co.edu.uniquindio.litografia.modelo.Papeleria;
 import co.edu.uniquindio.litografia.modelo.Producto;
 import co.edu.uniquindio.litografia.modelo.Proveedor;
+import javafx.collections.ObservableList;
 
 public class ModelFactoryController implements Runnable {
 
@@ -141,6 +142,12 @@ public class ModelFactoryController implements Runnable {
 	public boolean eliminarFactura(String id) {
 		if(papeleria.eliminarFactura(id)) return true;
 		return false;
+	}
+
+	public Factura agregarDetalleFactura(String idFactura, ObservableList<Producto> listadoDetalleFactura, double valorFactura) {
+		
+		Factura factura = papeleria.agregarDetalleFactura(idFactura, listadoDetalleFactura, valorFactura);
+		return factura;
 	}
 
 
