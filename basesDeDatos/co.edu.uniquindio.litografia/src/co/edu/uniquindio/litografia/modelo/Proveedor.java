@@ -10,8 +10,7 @@ public class Proveedor {
 	private String telefono;
 	private ArrayList<MateriaPrima> listaMateriasPrimas;
 	
-	public Proveedor(String rUT, String id, String nombre, String telefono,
-			ArrayList<MateriaPrima> listaMateriasPrimas) {
+	public Proveedor(String rUT, String id, String nombre, String telefono) {
 		RUT = rUT;
 		this.id = id;
 		this.nombre = nombre;

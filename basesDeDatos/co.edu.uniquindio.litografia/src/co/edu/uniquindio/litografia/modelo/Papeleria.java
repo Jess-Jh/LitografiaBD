@@ -1,9 +1,15 @@
 package co.edu.uniquindio.litografia.modelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import co.edu.uniquindio.litografia.excepciones.ClienteException;
 import co.edu.uniquindio.litografia.excepciones.ClienteNoRegistradoException;
+import co.edu.uniquindio.litografia.excepciones.FacturaException;
+import co.edu.uniquindio.litografia.excepciones.ProductoException;
+import co.edu.uniquindio.litografia.excepciones.ProductoNoRegistradoException;
+import co.edu.uniquindio.litografia.excepciones.ProveedorException;
+import co.edu.uniquindio.litografia.excepciones.ProveedorNoRegistradoException;
 
 public class Papeleria {
 	
@@ -155,13 +161,13 @@ public class Papeleria {
 
 			return cliente;
 		} else {
-			throw new ClienteNoRegistradoException("El cliente que al que le desea actualizar los datos no se encuentra registrado");
+			throw new ClienteNoRegistradoException("El cliente al que le desea actualizar los datos no se encuentra registrado");
 		}
 	}
 
 	public boolean eliminarCliente(String cedula) {
 		
-		Boolean clienteEliminado = false;
+		boolean clienteEliminado = false;
 		Cliente cliente = obtenerCliente(cedula);
 		
 		if(cliente != null) {
@@ -173,6 +179,164 @@ public class Papeleria {
 	
 	// --------------------------------------------------------------------------------------------------------------------------------------------------||
 	
+	// ------------------------------------------------------------CRUD Producto ------------------------------------------------------------------------>>
+
+	public Producto agregarProducto(String id, String tipo, String precio) throws ProductoException {
+		
+		double precioProducto = Double.valueOf(precio);
+		if(existeProducto(id)) {
+			throw new ProductoException("El producto con id " + id + " ya se encuentra registrado");
+		} else {
+			Producto producto = new Producto(id, tipo, precioProducto);
+			listaProductos.add(producto);
+			return producto;
+		}
+	}
+	
+	private boolean existeProducto(String id) {
+		for(Producto producto: listaProductos) {
+			if(producto.getId().equalsIgnoreCase(id))
+				return true;
+		}
+		return false;
+	}
+
+	public Producto actualizarProducto(String id, String tipo, String precio) throws ProductoNoRegistradoException {
+		Producto producto = obtenerProducto(id);
+		double precioProducto = Double.valueOf(precio);
+		
+		if(producto != null) {
+			producto.setId(id);
+			producto.setTipo(tipo);
+			producto.setPrecio(precioProducto);
+
+			return producto;
+		} else {
+			throw new ProductoNoRegistradoException("El producto al que le desea actualizar los datos no se encuentra registrado");
+		}
+	}
+	
+	public Producto obtenerProducto(String id) {
+		for (Producto producto : listaProductos) {
+			if(producto.getId().equalsIgnoreCase(id)) 
+				return producto;
+		}
+		return null;
+	}
+
+	public boolean eliminarProducto(String id) {
+		boolean productoEliminado = false;
+		Producto producto = obtenerProducto(id);
+		
+		if(producto != null) {
+			getListaProductos().remove(producto);
+			productoEliminado = true;
+		}
+		return productoEliminado;
+	}
+	
+	// --------------------------------------------------------------------------------------------------------------------------------------------------||
+	
+	// ------------------------------------------------------------CRUD Proveedor ------------------------------------------------------------------------>>
+
+	public Proveedor agregarProveedor(String rutProveedor, String id, String nombre, String telefono) throws ProveedorException {
+		if(existeProveedor(id)) {
+			throw new ProveedorException("El proveedor con id " + id + " ya se encuentra registrado");
+		} else {
+			Proveedor proveedor = new Proveedor(rutProveedor, id, nombre, telefono);
+			listaProveedores.add(proveedor);
+			return proveedor;
+		}
+	}
+	
+	private boolean existeProveedor(String id) {
+		for(Proveedor proveedor: listaProveedores) {
+			if(proveedor.getId().equalsIgnoreCase(id))
+				return true;
+		}
+		return false;
+	}
+
+	public Proveedor actualizarProveedor(String rutProveedor, String id, String nombre, String telefono) throws ProveedorNoRegistradoException {
+		Proveedor proveedor = obtenerProveedor(id);
+		
+		if(proveedor != null) {
+			proveedor.setRUT(rutProveedor);
+			proveedor.setId(id);
+			proveedor.setNombre(nombre);
+			proveedor.setTelefono(telefono);
+
+			return proveedor;
+		} else {
+			throw new ProveedorNoRegistradoException("El proveedor al que le desea actualizar los datos no se encuentra registrado");
+		}
+	}
+	
+	public Proveedor obtenerProveedor(String id) {
+		for (Proveedor proveedor : listaProveedores) {
+			if(proveedor.getId().equalsIgnoreCase(id)) 
+				return proveedor;
+		}
+		return null;
+	}
+
+	public boolean eliminarProveedor(String id) {
+		boolean proveedorEliminado = false;
+		Proveedor proveedor = obtenerProveedor(id);
+		
+		if(proveedor != null) {
+			getListaProveedores().remove(proveedor);
+			proveedorEliminado = true;
+		}
+		return proveedorEliminado;
+	}
+	
+	// --------------------------------------------------------------------------------------------------------------------------------------------------||
+	
+	// ------------------------------------------------------------CRUD Factura ------------------------------------------------------------------------>>
+
+	public Factura agregarFactura(String id, LocalDate fecha, String cliente) throws FacturaException {
+		if(existeFactura(id)) {
+			throw new FacturaException("La factura con id " + id + " ya se encuentra registrada");
+		} else {
+			Cliente clienteFactura = null;
+			for (Cliente c : listaClientes) {
+				if(c.getCedula().equalsIgnoreCase(cliente))
+					clienteFactura = c;
+			}
+			
+			Factura factura = new Factura(id, fecha, clienteFactura, clienteFactura.getCedula());
+			listaFacturas.add(factura);
+			return factura;
+		}
+	}
+	
+	private boolean existeFactura(String id) {
+		for(Factura factura: listaFacturas) {
+			if(factura.getId().equalsIgnoreCase(id))
+				return true;
+		}
+		return false;
+	}
+	
+	public Factura obtenerFactura(String id) {
+		for (Factura factura : listaFacturas) {
+			if(factura.getId().equalsIgnoreCase(id)) 
+				return factura;
+		}
+		return null;
+	}
+
+	public boolean eliminarFactura(String id) {
+		boolean facturaEliminado = false;
+		Factura factura = obtenerFactura(id);
+		
+		if(factura != null) {
+			getListaFacturas().remove(factura);
+			facturaEliminado = true;
+		}
+		return facturaEliminado;
+	}
 	
 
 }

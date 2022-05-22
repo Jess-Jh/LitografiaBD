@@ -12,19 +12,18 @@ public class Factura {
 	private ArrayList<Diseno> listaDisenos;
 	private ArrayList<Litografia> listaLitografias;
 	private Cliente cliente;
+	private String cedulaCliente;
 	private ArrayList<Empleado> listaEmpleados;
 	
-	public Factura(String id, LocalDate fecha, double precio, ArrayList<Producto> listaProductos,
-			ArrayList<Diseno> listadiDisenos, ArrayList<Litografia> listalLitografias, Cliente cliente,
-			ArrayList<Empleado> listaEmpleados) {
-		super();
+	public Factura(String id, LocalDate fecha, Cliente cliente, String cedulaCliente) {
 		this.id = id;
 		this.fecha = fecha;
 		this.precio = precio;
+		this.cliente = cliente;
+		this.cedulaCliente = cliente.getCedula();
 		this.listaProductos = new ArrayList<>();
 		this.listaDisenos = new ArrayList<>();
 		this.listaLitografias = new ArrayList<>();
-		this.cliente = cliente;
 		this.listaEmpleados = new ArrayList<>();
 	}
 	
@@ -75,6 +74,24 @@ public class Factura {
 	}
 	public void setListaEmpleados(ArrayList<Empleado> listaEmpleados) {
 		this.listaEmpleados = listaEmpleados;
+	}
+	public ArrayList<Diseno> getListaDisenos() {
+		return listaDisenos;
+	}
+	public void setListaDisenos(ArrayList<Diseno> listaDisenos) {
+		this.listaDisenos = listaDisenos;
+	}
+	public ArrayList<Litografia> getListaLitografias() {
+		return listaLitografias;
+	}
+	public void setListaLitografias(ArrayList<Litografia> listaLitografias) {
+		this.listaLitografias = listaLitografias;
+	}
+	public String getCedulaCliente() {
+		return cedulaCliente;
+	}
+	public void setCedulaCliente(String cedulaCliente) {
+		this.cedulaCliente = cedulaCliente;
 	}
 	
 	

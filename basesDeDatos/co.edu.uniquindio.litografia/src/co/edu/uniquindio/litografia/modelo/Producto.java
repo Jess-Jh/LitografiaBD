@@ -9,11 +9,11 @@ public class Producto {
 	private double precio;
 	private ArrayList<Factura> listaFacturas;
 
-	public Producto(String id, String tipo, double precio, ArrayList<Factura> listaFacturas) {
+	public Producto(String id, String tipo, double precio) {
 		this.id = id;
 		this.tipo = tipo;
 		this.precio = precio;
-		this.listaFacturas = listaFacturas;
+		this.listaFacturas = new ArrayList<>();
 	}
 
 	public String getId() {

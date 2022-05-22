@@ -2,7 +2,6 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.TipoEmpleado"/>
     <fullyQualifiedTypeName name="javafx.util.converter.LocalDateStringConverter"/>
-    <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.EspecificacionLitografica"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.EspecificacionDiseno"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Devolucion"/>
@@ -15,7 +14,6 @@
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Litografia"/>
     <fullyQualifiedTypeName name="java.lang.Runnable"/>
     <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="javafx.application.Application"/>
     <fullyQualifiedTypeName name="javafx.stage.Stage"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.controladores.ModelFactoryController"/>
@@ -26,9 +24,7 @@
     <fullyQualifiedTypeName name="javafx.stage.Modality"/>
     <fullyQualifiedTypeName name="javafx.scene.Scene"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
-    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Producto"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Factura"/>
-    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Proveedor"/>
     <fullyQualifiedTypeName name="javafx.collections.ObservableList"/>
     <fullyQualifiedTypeName name="javafx.collections.FXCollections"/>
     <fullyQualifiedTypeName name="javafx.scene.control.cell.PropertyValueFactory"/>
@@ -39,4 +35,12 @@
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Cliente"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Papeleria"/>
+    <fullyQualifiedTypeName name="javax.net.ssl.SSLPeerUnverifiedException"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.excepciones.ClienteNoRegistradoException"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.excepciones.ProductoNoRegistradoException"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Producto"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Proveedor"/>
+    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
 </qualifiedTypeNameHistroy>
