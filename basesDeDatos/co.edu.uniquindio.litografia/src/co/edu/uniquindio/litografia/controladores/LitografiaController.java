@@ -204,6 +204,9 @@ public class LitografiaController implements Initializable {
 
     @FXML
     private TextField txtIdFactura;
+    
+    @FXML
+    private Label txtIdFacturaSeleccionada;
 
     @FXML
     private TextField txtIdProducto;
@@ -249,6 +252,7 @@ public class LitografiaController implements Initializable {
     private Cliente clienteSeleccion;
     private Proveedor proveedorSeleccion;
     private Factura facturaSeleccion;
+    private Producto detalleFacturaSeleccion;
     
     // Table Views
     ObservableList<Cliente> listadoClientes = FXCollections.observableArrayList();
@@ -256,6 +260,7 @@ public class LitografiaController implements Initializable {
     ObservableList<Proveedor> listadoProveedores = FXCollections.observableArrayList();
     ObservableList<Factura> listadoFacturas = FXCollections.observableArrayList();
     ObservableList<Producto> listadoProductos1 = FXCollections.observableArrayList();
+    ObservableList<Producto> listadoDetalleFactura = FXCollections.observableArrayList();
     ObservableList<Producto> filtroListadoProductos1 = FXCollections.observableArrayList();
     
     
@@ -301,12 +306,6 @@ public class LitografiaController implements Initializable {
 				mostrarInformacionProducto();
 			}
 		});
-		
-		// Configurar el Spinner de 0-100
-		SpinnerValueFactory<Integer> gradesValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100);
-		spnCantidadProductos.setValueFactory(gradesValueFactory);
-		spnCantidadProductos.setEditable(true);
-		
 		//--------------------------------------------------------------------------------------------------------------------------------||
 
 		//----------------------------------------- Proveedores --------------------------------------------------------------------------->>
@@ -322,21 +321,50 @@ public class LitografiaController implements Initializable {
 			}
 		});
 		//--------------------------------------------------------------------------------------------------------------------------------||
-		//----------------------------------------- Proveedores --------------------------------------------------------------------------->>
+		//----------------------------------------- Facturas --------------------------------------------------------------------------->>
+//		if(papeleria.getListaFacturas() != null) {
+//			this.columnIdFactura.setCellValueFactory(new PropertyValueFactory<>("id"));
+//			this.columnFechaFactura.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+//			this.columnClienteFactura.setCellValueFactory(new PropertyValueFactory<>("cedulaCliente"));
+//			
+//			//Obtener seleccion de la tabla
+//			tableViewFacturas.getSelectionModel().selectedItemProperty().addListener((obs, oldSeletion, newSelection) -> {
+//				if(newSelection != null) {
+//					facturaSeleccion = newSelection;
+//					if(facturaSeleccion != null) txtIdFacturaSeleccionada.setText("Id factura seleccionada: " + facturaSeleccion.getId());
+//					mostrarInformacionFactura();
+//				}
+//			});	
+//			// Configurar el Spinner de 0-100
+//			SpinnerValueFactory<Integer> gradesValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100);
+//			spnCantidadProductos.setValueFactory(gradesValueFactory);
+//			spnCantidadProductos.setEditable(true);
+//		}
+		//--------------------------------------------------------------------------------------------------------------------------------||
+		//----------------------------------------- Facturas --------------------------------------------------------------------------->>
 		if(papeleria.getListaFacturas() != null) {
 			this.columnIdFactura.setCellValueFactory(new PropertyValueFactory<>("id"));
 			this.columnFechaFactura.setCellValueFactory(new PropertyValueFactory<>("fecha"));
 			this.columnClienteFactura.setCellValueFactory(new PropertyValueFactory<>("cedulaCliente"));
 			
+			if(papeleria.getListaProductos() != null) {
+				this.columnProductoDetalleFactura.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+				this.columnCantidadDetalleFactura.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+			}
+			
 			//Obtener seleccion de la tabla
 			tableViewFacturas.getSelectionModel().selectedItemProperty().addListener((obs, oldSeletion, newSelection) -> {
 				if(newSelection != null) {
-					facturaSeleccion = newSelection;			
+					facturaSeleccion = newSelection;
+					if(facturaSeleccion != null) txtIdFacturaSeleccionada.setText("Id factura seleccionada: " + facturaSeleccion.getId());
 					mostrarInformacionFactura();
 				}
-			});			
+			});	
+			// Configurar el Spinner de 0-100
+			SpinnerValueFactory<Integer> gradesValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100);
+			spnCantidadProductos.setValueFactory(gradesValueFactory);
+			spnCantidadProductos.setEditable(true);
 		}
-		
 		//--------------------------------------------------------------------------------------------------------------------------------||
 		
 		// Agregar datos al combo box de la factura
@@ -422,6 +450,13 @@ public class LitografiaController implements Initializable {
 		
 		tableViewFacturas.getItems().clear();
 		tableViewFacturas.setItems(getFacturas());
+		
+		if(facturaSeleccion != null) {
+			tableViewDetalleFactura.getItems().clear();
+			tableViewDetalleFactura.setItems(getProductosFactura());			
+		}
+		
+		
 	}
 	
 	private ObservableList<Cliente> getClientes() {		
@@ -442,6 +477,11 @@ public class LitografiaController implements Initializable {
 	private ObservableList<Factura> getFacturas() {		
 		listadoFacturas.addAll(papeleria.getListaFacturas()); 
 		return listadoFacturas;
+	}
+	
+	private ObservableList<Producto> getProductosFactura() {		
+		listadoDetalleFactura.addAll(facturaSeleccion.getListaProductos());
+		return listadoProductos;
 	}
 	 
 	 
@@ -925,12 +965,53 @@ public class LitografiaController implements Initializable {
 
     @FXML
     void agregarProductoDetalleFactura(ActionEvent event) {
+    	
+    	try {
+			validarSeleccion(txtProductoSeleccionado.getText(), spnCantidadProductos.getValue());
+			productoSeleccion1.setCantidad(spnCantidadProductos.getValue());;
+			listadoDetalleFactura.add(0, productoSeleccion1);
+			
+			calcularTotalFactura(listadoDetalleFactura);
+			tableViewDetalleFactura.setItems(listadoDetalleFactura);
+					
+		} catch (DatosInvalidosException e) {
+			papeleriaAplicacion.mostrarMensaje("Notificación agregar producto detalle factura", "Agregar Producto", e.getMessage(), AlertType.WARNING);
 
+		}
     }
 
-    @FXML
-    void eliminarDetalleFactura(ActionEvent event) {
+	private void calcularTotalFactura(ObservableList<Producto> listadoDetalleFactura) {
+		double total = 0;
+		for (Producto producto : listadoDetalleFactura) {
+			total += producto.getPrecio() * producto.getCantidad(); 
+		}
+		txtTotalFactura.setText(String.valueOf("$ " + total));
+	}
 
+	private boolean validarSeleccion(String productoSeleccionado, Integer spinner) throws DatosInvalidosException {
+		
+		String notificacion = "";	
+		
+		if(productoSeleccionado == null || productoSeleccionado.equals("") || productoSeleccionado.isEmpty()) {
+			notificacion += "Seleccione un producto de la lista\n";
+		}
+		if(spinner <= 0) {
+			notificacion += "La cantidad debe ser mayor a cero(0)\n";
+		}
+		if(notificacion.equals("")) {
+			return true;
+		}
+		throw new DatosInvalidosException(notificacion); 
+	}
+
+	@FXML
+    void eliminarDetalleFactura(ActionEvent event) {
+		if(productoSeleccion1 != null) {
+			listadoDetalleFactura.remove(productoSeleccion1);
+			
+			calcularTotalFactura(listadoDetalleFactura);
+			tableViewDetalleFactura.setItems(listadoDetalleFactura);			
+		}
     }
 
     @FXML

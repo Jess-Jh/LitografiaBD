@@ -7,6 +7,7 @@ public class Producto {
 	private String id;
 	private String tipo;
 	private double precio;
+	private int cantidad;
 	private ArrayList<Factura> listaFacturas;
 
 	public Producto(String id, String tipo, double precio) {
@@ -15,12 +16,26 @@ public class Producto {
 		this.precio = precio;
 		this.listaFacturas = new ArrayList<>();
 	}
+	
+	public Producto(String id, String tipo, double precio, int cantidad) {
+		this.id = id;
+		this.tipo = tipo;
+		this.precio = precio;
+		this.cantidad = cantidad;
+		this.listaFacturas = new ArrayList<>();
+	}
 
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public int getCantidad() {
+		return cantidad;
+	}
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
 	}
 	public String getTipo() {
 		return tipo;

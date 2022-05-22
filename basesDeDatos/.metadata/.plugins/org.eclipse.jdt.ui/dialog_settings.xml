@@ -2,7 +2,8 @@
 <section name="Workbench">
 	<item key="org.eclipse.jdt.ui.last.selected.jre.kind2" value="0"/>
 	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-16"/>
-	<item key="org.eclipse.jdt.ui.lastextjar" value="E:\Ingeniería\Eclipse\javafx-sdk-17.0.0.1\lib"/>
+	<item key="org.eclipse.jdt.ui.lastextjar" value="E:\Ingeniería\Eclipse\fontawesome"/>
+	<item key="UserLibraryLoadSaveDialog.size" value="480,510"/>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item key="group_libraries" value="true"/>
 		<item key="layout" value="2"/>

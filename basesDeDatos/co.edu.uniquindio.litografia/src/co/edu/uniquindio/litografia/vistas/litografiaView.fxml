@@ -379,7 +379,7 @@
                                                       <TableColumn fx:id="columnPrecioProducto1" prefWidth="95.0" text="Precio" />
                                                    </columns>
                                                 </TableView>
-                                                <Button fx:id="btnPagoFactura" layoutX="736.0" layoutY="277.0" mnemonicParsing="false" onAction="#pagarFactura" prefHeight="25.0" prefWidth="220.0" style="-fx-background-color: #000E68; -fx-background-radius: 20px;" text="Pagar Factura" textFill="WHITE">
+                                                <Button fx:id="btnPagoFactura" layoutX="736.0" layoutY="277.0" mnemonicParsing="false" onAction="#pagarFactura" prefHeight="25.0" prefWidth="220.0" style="-fx-background-color: #24832A; -fx-background-radius: 20px;" text="Pagar Factura" textFill="WHITE">
                                                    <cursor>
                                                       <Cursor fx:constant="HAND" />
                                                    </cursor>
@@ -405,9 +405,9 @@
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
                                                 </Button>
-                                                <Label id="txtIdFacturaDetalle" layoutX="186.0" layoutY="12.0" prefHeight="17.0" prefWidth="101.0">
+                                                <Label id="txtIdFacturaDetalle" fx:id="txtIdFacturaSeleccionada" layoutX="186.0" layoutY="12.0" prefHeight="27.0" prefWidth="196.0">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font size="14.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="txtFiltrarProducto" layoutX="822.0" layoutY="10.0" onKeyReleased="#filtrarProducto" prefHeight="25.0" prefWidth="193.0" promptText="Buscar producto" style="-fx-background-color: transparent; -fx-border-color: #000E68; -fx-border-width: 0px 0px 2px 0px;" />

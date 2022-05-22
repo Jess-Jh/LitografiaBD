@@ -24,7 +24,6 @@
     <fullyQualifiedTypeName name="javafx.stage.Modality"/>
     <fullyQualifiedTypeName name="javafx.scene.Scene"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
-    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Factura"/>
     <fullyQualifiedTypeName name="javafx.collections.ObservableList"/>
     <fullyQualifiedTypeName name="javafx.collections.FXCollections"/>
     <fullyQualifiedTypeName name="javafx.scene.control.cell.PropertyValueFactory"/>
@@ -39,8 +38,13 @@
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.excepciones.ClienteNoRegistradoException"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.excepciones.ProductoNoRegistradoException"/>
-    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Producto"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Proveedor"/>
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.SpinnerValueFactory"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory"/>
+    <fullyQualifiedTypeName name="javafx.scene.input.KeyEvent"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Factura"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Producto"/>
 </qualifiedTypeNameHistroy>

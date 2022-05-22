@@ -8,11 +8,11 @@ public class Factura {
 	private String id;
 	private LocalDate fecha;
 	private double precio;
+	private Cliente cliente;
+	private String cedulaCliente;
 	private ArrayList<Producto> listaProductos;
 	private ArrayList<Diseno> listaDisenos;
 	private ArrayList<Litografia> listaLitografias;
-	private Cliente cliente;
-	private String cedulaCliente;
 	private ArrayList<Empleado> listaEmpleados;
 	
 	public Factura(String id, LocalDate fecha, Cliente cliente, String cedulaCliente) {

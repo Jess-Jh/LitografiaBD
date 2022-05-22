@@ -46,6 +46,9 @@ public class Papeleria {
 		
 		Producto producto = new Producto("2", "Diseño", 200);
 		getListaProductos().add(producto);
+		
+		Factura factura = new Factura("3", LocalDate.now(), cliente, "1234");
+		getListaFacturas().add(factura);
 	}
 	
 	public ArrayList<Cliente> getListaClientes() {
@@ -339,7 +342,6 @@ public class Papeleria {
 			facturaEliminado = true;
 		}
 		return facturaEliminado;
-	}
-	
+	}	
 
 }

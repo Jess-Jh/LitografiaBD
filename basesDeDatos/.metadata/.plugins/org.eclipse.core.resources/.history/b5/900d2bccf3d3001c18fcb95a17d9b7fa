@@ -1,8 +1,0 @@
-package co.edu.uniquindio.litografia.modelo;
-
-public class EspecificacionLitografica {
-
-	private String id;
-	private String tamano;
-	private String tipoPapel;
-}
