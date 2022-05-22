@@ -1,9 +1,0 @@
-package co.edu.uniquindio.litografia.modelo;
-
-public class Diseno {
-	
-	private String id;
-	private String tipo;
-	private String tamano;
-
-}

@@ -43,6 +43,9 @@ public class Papeleria {
 		
 		Cliente cliente = new Cliente("2141243", "241243", "sdfasdfsaf", "sfasdfasf", "sdfasfdasf");
 		getListaClientes().add(cliente);
+		
+		Producto producto = new Producto("2", "Diseño", 200);
+		getListaProductos().add(producto);
 	}
 	
 	public ArrayList<Cliente> getListaClientes() {

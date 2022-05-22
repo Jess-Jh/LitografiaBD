@@ -30,10 +30,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 
 public class LitografiaController implements Initializable {
 	
@@ -205,6 +207,9 @@ public class LitografiaController implements Initializable {
 
     @FXML
     private TextField txtIdProducto;
+    
+    @FXML
+    private TextField txtFiltrarProducto;
 
     @FXML
     private TextField txtIdProveedor;
@@ -240,6 +245,7 @@ public class LitografiaController implements Initializable {
 
     // Seleccion en las tableviews
     private Producto productoSeleccion;
+    private Producto productoSeleccion1;
     private Cliente clienteSeleccion;
     private Proveedor proveedorSeleccion;
     private Factura facturaSeleccion;
@@ -249,6 +255,8 @@ public class LitografiaController implements Initializable {
     ObservableList<Producto> listadoProductos = FXCollections.observableArrayList();
     ObservableList<Proveedor> listadoProveedores = FXCollections.observableArrayList();
     ObservableList<Factura> listadoFacturas = FXCollections.observableArrayList();
+    ObservableList<Producto> listadoProductos1 = FXCollections.observableArrayList();
+    ObservableList<Producto> filtroListadoProductos1 = FXCollections.observableArrayList();
     
     
 	@Override
@@ -279,7 +287,28 @@ public class LitografiaController implements Initializable {
 				mostrarInformacionProducto();
 			}
 		});
+		
 		//--------------------------------------------------------------------------------------------------------------------------------||
+		//----------------------------------------- Productos1 --------------------------------------------------------------------------->>
+		this.columnIdProducto1.setCellValueFactory(new PropertyValueFactory<>("id"));
+		this.columnTipoProducto1.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+		this.columnPrecioProducto1.setCellValueFactory(new PropertyValueFactory<>("precio"));
+				
+		tableViewProductos1.getSelectionModel().selectedItemProperty().addListener((obs, oldSeletion, newSelection) -> {
+			if(newSelection != null) {
+				productoSeleccion1 = newSelection;	
+				if(productoSeleccion1 != null) txtProductoSeleccionado.setText(productoSeleccion1.getTipo());
+				mostrarInformacionProducto();
+			}
+		});
+		
+		// Configurar el Spinner de 0-100
+		SpinnerValueFactory<Integer> gradesValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100);
+		spnCantidadProductos.setValueFactory(gradesValueFactory);
+		spnCantidadProductos.setEditable(true);
+		
+		//--------------------------------------------------------------------------------------------------------------------------------||
+
 		//----------------------------------------- Proveedores --------------------------------------------------------------------------->>
 		this.columnIdProveedor.setCellValueFactory(new PropertyValueFactory<>("id"));
 		this.columnNombreProveedor.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -384,6 +413,9 @@ public class LitografiaController implements Initializable {
 		
 		tableViewProductos.getItems().clear();
 		tableViewProductos.setItems(getProductos());
+		
+		tableViewProductos1.getItems().clear();
+		tableViewProductos1.setItems(getProductos());
 		
 		tableViewProveedores.getItems().clear();
 		tableViewProveedores.setItems(getProveedores());
@@ -565,8 +597,15 @@ public class LitografiaController implements Initializable {
 			
 			papeleriaAplicacion.mostrarMensaje("Registro Producto", "Registro Producto", "El producto " + producto.getTipo() + "  ha sido registrado con éxito", AlertType.INFORMATION); 					
 	
-			if(producto != null) listadoProductos.add(0, producto);
+			if(producto != null) {
+				listadoProductos.add(0, producto);
+				listadoProductos1.add(0, producto);
+			}
+			if(producto.toString().toLowerCase().contains(txtFiltrarProducto.getText().toLowerCase())) {
+				filtroListadoProductos1.add(producto);
+			}
 			tableViewProductos.refresh();
+			tableViewProductos1.refresh();
 			limpiarCamposProducto();
 						
 		} catch (DatosInvalidosException | ProductoException e) {
@@ -615,8 +654,12 @@ public class LitografiaController implements Initializable {
 			productoSeleccion.setId(id);
 			productoSeleccion.setTipo(tipo);
 			productoSeleccion.setPrecio(precioProducto);
+			
+			if(!productoSeleccion.toString().toLowerCase().contains(txtFiltrarProducto.getText().toLowerCase())) 
+				filtroListadoProductos1.remove(productoSeleccion);
 		
 			tableViewProductos.refresh();
+			tableViewProductos1.refresh();
 			papeleriaAplicacion.mostrarMensaje("Notificación Actualización Producto", "Actualización Producto", "El producto " + producto.getTipo() + "  ha sido actualizado con éxito", AlertType.INFORMATION);
 			limpiarCamposProducto();
 		} catch (DatosInvalidosException | ProductoNoRegistradoException e) {
@@ -658,14 +701,34 @@ public class LitografiaController implements Initializable {
 	    		papeleriaAplicacion.mostrarMensaje("Notificación eliminación producto", "Eliminación Producto", "Se ha eliminado el producto", AlertType.INFORMATION);
 	    		
 	    		listadoProductos.remove(productoSeleccion);
+	    		listadoProductos1.remove(productoSeleccion);
+	    		filtroListadoProductos1.remove(productoSeleccion);
 	    		tableViewProductos.refresh();
+	    		tableViewProductos1.refresh();
 			} else {
 				papeleriaAplicacion.mostrarMensaje("Notificación eliminación producto", "Eliminar Producto", "No se ha eliminado el producto", AlertType.WARNING);    			
 			}
 		} else {
 			papeleriaAplicacion.mostrarMensaje("Notificación eliminación producto", "Eliminación Producto", "No se ha seleccionado ninguna producto", AlertType.WARNING);
 		}
-
+    }
+    
+    @FXML
+    void filtrarProducto(KeyEvent event) {
+    	String filtroProducto = txtFiltrarProducto.getText();
+    	
+    	if(filtroProducto.isEmpty()) {
+    		tableViewProductos1.setItems(listadoProductos1);
+    	} else {
+    		filtroListadoProductos1.clear();
+    		
+    		for (Producto producto: listadoProductos1) {
+				if(producto.toString().toLowerCase().contains(filtroProducto.toLowerCase())) {
+					filtroListadoProductos1.add(producto);
+				}
+			}
+    		tableViewProductos1.setItems(filtroListadoProductos1);
+    	}
     }
     //-------------------------------------------------------------------------------------------------------------------------------------------------||
 

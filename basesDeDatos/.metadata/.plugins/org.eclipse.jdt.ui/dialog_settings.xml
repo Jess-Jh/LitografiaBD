@@ -13,7 +13,7 @@
 	<section name="JavaElementSearchActions">
 	</section>
 	<section name="ClasspathContainerSelectionPage">
-		<item key="index" value="3"/>
+		<item key="index" value="10"/>
 	</section>
 	<section name="NewPackageWizardPage">
 		<item key="create_package_info_java" value="false"/>
