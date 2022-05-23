@@ -109,6 +109,7 @@ public class ModelFactoryController implements Runnable {
 
 	public Producto actualizarProducto(String id, String tipo, String precio) throws ProductoNoRegistradoException {
 		Producto producto = papeleria.actualizarProducto(id, tipo, precio);
+		Persistencia.actualizarProducto(id, tipo, precio);
 		return producto;
 	}
 
@@ -120,7 +121,10 @@ public class ModelFactoryController implements Runnable {
 	}
 
 	public boolean eliminarProducto(String id) {
-		if(papeleria.eliminarProducto(id)) return true;
+		if(papeleria.eliminarProducto(id)) {
+			Persistencia.eliminarProducto(id);
+			return true;
+		}
 		return false;
 	}
 	// ----------------------------------------------------------------------------------------------------------------------------------------------------||

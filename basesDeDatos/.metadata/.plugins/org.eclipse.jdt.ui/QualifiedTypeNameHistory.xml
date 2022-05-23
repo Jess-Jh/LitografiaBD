@@ -26,7 +26,6 @@
     <fullyQualifiedTypeName name="javafx.scene.control.cell.PropertyValueFactory"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="javafx.scene.control.ButtonType"/>
-    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Cliente"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="javax.net.ssl.SSLPeerUnverifiedException"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.excepciones.ClienteNoRegistradoException"/>
@@ -39,8 +38,6 @@
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Factura"/>
-    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Producto"/>
-    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Papeleria"/>
     <fullyQualifiedTypeName name="javafx.scene.control.Alert.AlertType"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.excepciones.DatosInvalidosException"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -50,4 +47,15 @@
     <fullyQualifiedTypeName name="javafx.scene.paint.Color"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Empleado"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.controladores.LitografiaController"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.persistencia.ConexionSQL"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Cliente"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Papeleria"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.persistencia.Persistencia"/>
+    <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.PasswordField"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Producto"/>
 </qualifiedTypeNameHistroy>

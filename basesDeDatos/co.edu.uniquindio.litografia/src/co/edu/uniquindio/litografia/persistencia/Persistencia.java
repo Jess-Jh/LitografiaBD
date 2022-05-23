@@ -138,45 +138,44 @@ public class Persistencia {
 		}
 	}
 	
-//	public static void actualizarCliente(String cedula, String nombre, String apellido, String telefono, String correoElectronico) {
-//		
-//		try {
-//			String updateCliente = "update cliente "
-//					+ "set cedulaCliente = ?, nombre = ?, apellido = ?, telefono = ?, correoElectronico = ? "
-//					+ "where cedulaCliente = ?";
-//			
-//			PreparedStatement pst = con.prepareStatement(updateCliente);		
-//			
-//			pst.setString(1, cedula);
-//			pst.setString(2, nombre);
-//			pst.setString(3, apellido);
-//			pst.setString(4, telefono);
-//			pst.setString(5, correoElectronico);
-//			pst.setString(6, cedula);
-//			
-//			pst.execute();
-//			System.out.println("Actualización del cliente correcta en la base de datos");
-//			
-//		} catch (SQLException e) {
-//			System.out.println("Error al actualizar el cliente en la base de datos " + e.getMessage());
-//		}
-//	}
-//
-//	public static void eliminarCliente(String cedula) {
-//				
-//		try {
-//			String deleteCliente = "delete from cliente where cedulaCliente = " + cedula;
-//			Statement st = con.createStatement();
-//			
-//			int flag = st.executeUpdate(deleteCliente);
-//			
-//			if(flag >= 0) System.out.println("Cliente eliminado");
-//			
-//		} catch (SQLException e) {
-//			System.out.println("Error al eliminar el cliente de la base de datos " + e.getMessage());
-//		}
-//		
-//	}
+	public static void actualizarProducto(String id, String tipo, String precio) {
+		
+		try {
+			String updateProducto = "update producto "
+					+ "set idProducto = ?, tipo = ?, precio = ?, cantidad = ? "
+					+ "where idProducto = ?";
+			
+			PreparedStatement pst = con.prepareStatement(updateProducto);		
+			
+			pst.setString(1, id);
+			pst.setString(2, tipo);
+			pst.setString(3, precio);
+			pst.setString(4, null);
+			pst.setString(5, id);
+			
+			pst.execute();
+			System.out.println("Se actualizó el producto correctamente en la base de datos");
+			
+		} catch (SQLException e) {
+			System.out.println("Error al actualizar el producto en la base de datos " + e.getMessage());
+		}
+	}
+
+	public static void eliminarProducto(String idProducto) {
+				
+		try {
+			String deleteProducto = "delete from producto where idProducto = " + idProducto;
+			Statement st = con.createStatement();
+			
+			int flag = st.executeUpdate(deleteProducto);
+			
+			if(flag >= 0) System.out.println("Producto eliminado");
+			
+		} catch (SQLException e) {
+			System.out.println("Error al eliminar el producto de la base de datos " + e.getMessage());
+		}
+		
+	}
 		
 	// ----------------------------------------------------------------------------------------------------------------------------------------------------||
 
