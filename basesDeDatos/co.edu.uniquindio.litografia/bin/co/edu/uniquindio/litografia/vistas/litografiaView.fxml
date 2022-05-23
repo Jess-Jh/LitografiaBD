@@ -486,8 +486,8 @@
                   </Tab>
               </tabs>
             </TabPane>
-            <FontAwesomeIconView glyphName="SCISSORS" layoutX="969.0" layoutY="25.0" selectionFill="BLACK" size="24" />
-            <Button fx:id="btnCerrarSesion" layoutX="955.0" layoutY="2.0" mnemonicParsing="false" onAction="#cerrarSesion" opacity="0.0" text="Button">
+            <FontAwesomeIconView fill="#9a0000" glyphName="CLOSE" layoutX="969.0" layoutY="25.0" selectionFill="#f8f8f8" size="24" visible="false" />
+            <Button fx:id="btnCerrarSesion" layoutX="930.0" layoutY="2.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: transparent;" text="Cerrar Sesión" textFill="#a40b0b">
                <tooltip>
                   <Tooltip text="Cerrar Sesión">
                      <font>
@@ -498,14 +498,16 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
             </Button>
-            <Label fx:id="txtUsuarioInicioSesion" layoutX="835.0" layoutY="5.0" prefHeight="26.0" prefWidth="113.0">
+            <Label fx:id="txtUsuarioInicioSesion" layoutX="810.0" layoutY="5.0" prefHeight="26.0" prefWidth="113.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <FontAwesomeIconView layoutX="473.0" layoutY="-57.0" />
    </children>
 </AnchorPane>

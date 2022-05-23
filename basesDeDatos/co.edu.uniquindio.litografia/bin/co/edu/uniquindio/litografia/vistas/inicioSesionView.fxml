@@ -4,6 +4,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -15,12 +16,12 @@
          <children>
             <Pane layoutX="22.0" layoutY="34.0" prefHeight="494.0" prefWidth="461.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
                <children>
-                  <TextField fx:id="txtUsuario" alignment="CENTER" layoutX="60.0" layoutY="192.0" prefHeight="43.0" prefWidth="320.0" promptText="Usuario">
+                  <PasswordField fx:id="txtContrasena" alignment="CENTER" layoutX="60.0" layoutY="266.0" prefHeight="43.0" prefWidth="320.0" promptText="Contraseña">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
-                  </TextField>
-                  <TextField fx:id="txtContrasena" alignment="CENTER" layoutX="60.0" layoutY="265.0" prefHeight="43.0" prefWidth="320.0" promptText="Contraseña">
+                  </PasswordField>
+                  <TextField fx:id="txtUsuario" alignment="CENTER" layoutX="60.0" layoutY="192.0" prefHeight="43.0" prefWidth="320.0" promptText="Usuario">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>

@@ -48,6 +48,7 @@ public class ModelFactoryController implements Runnable {
 
 	private void cargarDatos() {
 		Persistencia.cargarDatosClientes(papeleria);
+		Persistencia.cargarDatosProductos(papeleria);
 	}
 
 	@Override
@@ -102,6 +103,7 @@ public class ModelFactoryController implements Runnable {
 
 	public Producto agregarProducto(String id, String tipo, String precio) throws ProductoException {
 		Producto producto = papeleria.agregarProducto(id, tipo, precio);
+		Persistencia.guardarProducto(id, tipo, precio);
 		return producto;
 	}
 

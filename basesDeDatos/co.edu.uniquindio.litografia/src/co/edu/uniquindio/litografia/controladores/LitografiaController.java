@@ -463,7 +463,8 @@ public class LitografiaController implements Initializable {
 		return listadoClientes;
 	}
 	
-	private ObservableList<Producto> getProductos() {		
+	private ObservableList<Producto> getProductos() {
+		listadoProductos.clear();
 		listadoProductos.addAll(papeleria.getListaProductos()); 
 		return listadoProductos;
 	}
