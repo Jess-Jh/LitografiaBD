@@ -42,6 +42,12 @@ public class Papeleria {
 		this.listaProductos = new ArrayList<>();
 		this.listaProveedores = new ArrayList<>();
 		
+		Empleado empleado = new Empleado("12343", "Luis", "Martinez", "Salud", "Diseñador", 1600000, TipoEmpleado.DISEÑADORA, "Cra 18 #34-25", "lumar", "123", true);
+		getListaEmpleados().add(empleado);
+
+		Empleado empleado1 = new Empleado("12343", "Andrea", "Fajardo", "Salud", "Diseñador", 1600000, TipoEmpleado.DISEÑADORA, "Cra 18 #34-25", "anfa", "456", false);
+		getListaEmpleados().add(empleado1);
+		
 		Cliente cliente = new Cliente("2141243", "241243", "sdfasdfsaf", "sfasdfasf", "sdfasfdasf");
 		getListaClientes().add(cliente);
 		
@@ -355,8 +361,29 @@ public class Papeleria {
 				facturaSeleccionada.setPrecio(valorFactura);
 			}
 		}
-		
 		return facturaSeleccionada;
+	}
+	// -------------------------------------------------------------------------------------------------------------------------------||
+	
+	public Empleado confirmarInicioSesion(String usuario, String contrasena, boolean sesionIniciada) {
+		
+		for (Empleado empleado : listaEmpleados) {
+			if(empleado.getUsuario().equals(usuario) && empleado.getContrasena().equals(contrasena)) {
+				empleado.setInicioSesion(sesionIniciada);
+				return empleado;
+			}
+		}
+		return null;
+	}
+
+	public boolean cerrarSesionUsuario() {
+		for (Empleado empleado : listaEmpleados) {
+			if(empleado.isInicioSesion() == true) {
+				empleado.setInicioSesion(false);
+				return true;
+			}
+		}
+		return false;
 	}	
 
 }

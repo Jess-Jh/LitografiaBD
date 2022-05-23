@@ -15,6 +15,7 @@ import co.edu.uniquindio.litografia.excepciones.ProductoNoRegistradoException;
 import co.edu.uniquindio.litografia.excepciones.ProveedorException;
 import co.edu.uniquindio.litografia.excepciones.ProveedorNoRegistradoException;
 import co.edu.uniquindio.litografia.modelo.Cliente;
+import co.edu.uniquindio.litografia.modelo.Empleado;
 import co.edu.uniquindio.litografia.modelo.Factura;
 import co.edu.uniquindio.litografia.modelo.Papeleria;
 import co.edu.uniquindio.litografia.modelo.Producto;
@@ -113,6 +114,9 @@ public class LitografiaController implements Initializable {
 
     @FXML
     private Button btnPagoFactura;
+    
+    @FXML
+    private Button btnCerrarSesion;
 
     @FXML
     private ComboBox<String> cmbClienteFactura;
@@ -247,6 +251,9 @@ public class LitografiaController implements Initializable {
     @FXML
     private Label txtProductoSeleccionado;
     
+    @FXML
+    public Label txtUsuarioInicioSesion;
+    
     private PapeleriaAplicacion papeleriaAplicacion;
 
     // Seleccion en las tableviews
@@ -255,7 +262,6 @@ public class LitografiaController implements Initializable {
     private Cliente clienteSeleccion;
     private Proveedor proveedorSeleccion;
     private Factura facturaSeleccion;
-    private Producto detalleFacturaSeleccion;
     
     // Table Views
     ObservableList<Cliente> listadoClientes = FXCollections.observableArrayList();
@@ -269,6 +275,11 @@ public class LitografiaController implements Initializable {
     
 	@Override
 	public void initialize(URL location, ResourceBundle resource) {
+		
+		for (Empleado empleado : papeleria.getListaEmpleados()) {
+			if(empleado.isInicioSesion()) 
+				txtUsuarioInicioSesion.setText(empleado.getNombre() + " " + empleado.getApellido());
+		}
 		
 		//----------------------------------------- Clientes --------------------------------------------------------------------------->>
 		this.columnCedulaCliente.setCellValueFactory(new PropertyValueFactory<>("cedula"));
@@ -420,6 +431,7 @@ public class LitografiaController implements Initializable {
 	}
     
 	public void setAplicacion(PapeleriaAplicacion papeleriaAplicacion) {
+		
 		this.papeleriaAplicacion = papeleriaAplicacion;
 		this.papeleria = papeleriaAplicacion.getPapeleria();
 		
@@ -1025,6 +1037,15 @@ public class LitografiaController implements Initializable {
     	}
     }
     //-------------------------------------------------------------------------------------------------------------------------------------------------||
+
+
+    @FXML
+    void cerrarSesion(ActionEvent event) {
+    	if(modelFactoryController.cerrarSesion())
+    		papeleriaAplicacion.mostrarInicioSesionView();
+    	else
+    		papeleriaAplicacion.mostrarMensaje("Cerrar Sesión", "Cerrar Sesión", "Ocurrió un problema al momento de cerrar la sesión", AlertType.WARNING);
+    }
 
 
 

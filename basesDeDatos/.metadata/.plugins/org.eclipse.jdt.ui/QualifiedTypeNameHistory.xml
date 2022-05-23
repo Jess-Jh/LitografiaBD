@@ -36,7 +36,6 @@
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Papeleria"/>
     <fullyQualifiedTypeName name="javax.net.ssl.SSLPeerUnverifiedException"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.excepciones.ClienteNoRegistradoException"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.excepciones.ProductoNoRegistradoException"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Proveedor"/>
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
@@ -47,4 +46,5 @@
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Factura"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Producto"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

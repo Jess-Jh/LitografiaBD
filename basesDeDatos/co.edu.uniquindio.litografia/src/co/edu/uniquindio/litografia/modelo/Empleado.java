@@ -22,8 +22,7 @@ public class Empleado {
 	private ArrayList<Devolucion> listaDevoluciones;
 	
 	public Empleado(String cedula, String nombre, String apellido, String eps, String titulo, double sueldo, TipoEmpleado tipo, String direccion, String usuario, 
-			String contrasena, boolean inicioSesion, ArrayList<EspecificacionLitografica> listaEspecificacionLitograficas, ArrayList<EspecificacionDiseno> listaEspecificacionDisenos, 
-			ArrayList<Factura> listaFacturas, ArrayList<Pedido> listaPedidos, ArrayList<Devolucion> listaDevoluciones) {
+			String contrasena, boolean inicioSesion) {
 		
 		this.cedula = cedula;
 		this.nombre = nombre;
@@ -36,11 +35,11 @@ public class Empleado {
 		this.usuario = usuario;
 		this.contrasena = contrasena;
 		this.inicioSesion = inicioSesion;
-		this.listaEspecificacionLitograficas = listaEspecificacionLitograficas;
-		this.listaEspecificacionDisenos = listaEspecificacionDisenos;
-		this.listaFacturas = listaFacturas;
-		this.listaPedidos = listaPedidos;
-		this.listaDevoluciones = listaDevoluciones;
+		this.listaEspecificacionLitograficas = new ArrayList<>();
+		this.listaEspecificacionDisenos = new ArrayList<>();
+		this.listaFacturas = new ArrayList<>();
+		this.listaPedidos = new ArrayList<>();
+		this.listaDevoluciones = new ArrayList<>();
 	}
 	
 	public String getCedula() {

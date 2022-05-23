@@ -6,11 +6,13 @@ import co.edu.uniquindio.litografia.aplicacion.PapeleriaAplicacion;
 import co.edu.uniquindio.litografia.excepciones.ClienteException;
 import co.edu.uniquindio.litografia.excepciones.ClienteNoRegistradoException;
 import co.edu.uniquindio.litografia.excepciones.FacturaException;
+import co.edu.uniquindio.litografia.excepciones.InicioSesionException;
 import co.edu.uniquindio.litografia.excepciones.ProductoException;
 import co.edu.uniquindio.litografia.excepciones.ProductoNoRegistradoException;
 import co.edu.uniquindio.litografia.excepciones.ProveedorException;
 import co.edu.uniquindio.litografia.excepciones.ProveedorNoRegistradoException;
 import co.edu.uniquindio.litografia.modelo.Cliente;
+import co.edu.uniquindio.litografia.modelo.Empleado;
 import co.edu.uniquindio.litografia.modelo.Factura;
 import co.edu.uniquindio.litografia.modelo.Papeleria;
 import co.edu.uniquindio.litografia.modelo.Producto;
@@ -148,6 +150,22 @@ public class ModelFactoryController implements Runnable {
 		
 		Factura factura = papeleria.agregarDetalleFactura(idFactura, listadoDetalleFactura, valorFactura);
 		return factura;
+	}
+	
+	//------------------------------------------------------------------------------------------------------------------------------------------------------||
+
+	public Empleado iniciarSesionUsuario(String usuario, String contrasena, boolean sesionIniciada) throws InicioSesionException {
+		
+		Empleado empleado = papeleria.confirmarInicioSesion(usuario, contrasena, sesionIniciada);
+		
+		if(empleado == null) throw new InicioSesionException("El usuario " + usuario + " o contraseña es incorrecto");
+		
+		return empleado;
+	}
+
+	public boolean cerrarSesion() {
+		boolean sesion = papeleria.cerrarSesionUsuario();
+		return sesion;
 	}
 
 

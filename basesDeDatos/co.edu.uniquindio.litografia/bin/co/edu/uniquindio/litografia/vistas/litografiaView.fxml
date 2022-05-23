@@ -13,17 +13,18 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="545.0" prefWidth="1055.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.litografia.controladores.LitografiaController">
+<AnchorPane prefHeight="532.0" prefWidth="1055.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.litografia.controladores.LitografiaController">
    <children>
-      <Pane layoutX="2.0" layoutY="3.0" prefHeight="556.0" prefWidth="1046.0">
+      <Pane layoutX="2.0" layoutY="-1.0" prefHeight="560.0" prefWidth="1050.0" style="-fx-background-color: white;">
          <children>
-            <TabPane layoutX="-4.0" layoutY="-2.0" prefHeight="749.0" prefWidth="1055.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane layoutX="-4.0" layoutY="1.0" prefHeight="725.0" prefWidth="1055.0" style="-fx-background-color: #B4B9D3;" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Cliente">
                   <content>
@@ -485,7 +486,26 @@
                   </Tab>
               </tabs>
             </TabPane>
+            <FontAwesomeIconView glyphName="SCISSORS" layoutX="969.0" layoutY="25.0" selectionFill="BLACK" size="24" />
+            <Button fx:id="btnCerrarSesion" layoutX="955.0" layoutY="2.0" mnemonicParsing="false" onAction="#cerrarSesion" opacity="0.0" text="Button">
+               <tooltip>
+                  <Tooltip text="Cerrar Sesión">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="txtUsuarioInicioSesion" layoutX="835.0" layoutY="5.0" prefHeight="26.0" prefWidth="113.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
+      <FontAwesomeIconView layoutX="473.0" layoutY="-57.0" />
    </children>
 </AnchorPane>

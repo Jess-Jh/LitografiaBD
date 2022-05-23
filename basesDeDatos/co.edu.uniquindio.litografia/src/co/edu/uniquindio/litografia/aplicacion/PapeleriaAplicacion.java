@@ -3,8 +3,10 @@ package co.edu.uniquindio.litografia.aplicacion;
 import java.io.IOException;
 import java.util.Optional;
 
+import co.edu.uniquindio.litografia.controladores.InicioSesionController;
 import co.edu.uniquindio.litografia.controladores.LitografiaController;
 import co.edu.uniquindio.litografia.controladores.ModelFactoryController;
+import co.edu.uniquindio.litografia.modelo.Empleado;
 import co.edu.uniquindio.litografia.modelo.Papeleria;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +15,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -46,13 +49,42 @@ public class PapeleriaAplicacion extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		this.primaryStage = primaryStage;
 		
-		mostrarLitografiaView();
+		mostrarInicioSesionView();
 	}
 	
+	public void mostrarInicioSesionView() {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(PapeleriaAplicacion.class.getResource("/co/edu/uniquindio/litografia/vistas/inicioSesionView.fxml"));
+			AnchorPane anchorPane = (AnchorPane)loader.load();
+			InicioSesionController inicioSesionController = loader.getController();
+			inicioSesionController.setAplicacion(this);
+			
+			Scene scene = new Scene(anchorPane);
+			scene.setFill(Color.TRANSPARENT);
+//			primaryStage.initStyle(StageStyle.TRANSPARENT);
+			if(confirmarInicioSesion()) 
+				mostrarLitografiaView();
+			else {
+				primaryStage.setScene(scene);
+				primaryStage.show();				
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private boolean confirmarInicioSesion() {
+		for (Empleado empleado : papeleria.getListaEmpleados()) {
+			if(empleado.isInicioSesion() == true) return true;
+		}
+		return false;
+	}
+
 	/**
 	 * Cargar la vista de la litografía
 	 */
-	private void mostrarLitografiaView() {
+	public void mostrarLitografiaView() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(PapeleriaAplicacion.class.getResource("/co/edu/uniquindio/litografia/vistas/litografiaView.fxml"));
