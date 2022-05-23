@@ -17,11 +17,13 @@ import co.edu.uniquindio.litografia.modelo.Factura;
 import co.edu.uniquindio.litografia.modelo.Papeleria;
 import co.edu.uniquindio.litografia.modelo.Producto;
 import co.edu.uniquindio.litografia.modelo.Proveedor;
+import co.edu.uniquindio.litografia.persistencia.Persistencia;
 import javafx.collections.ObservableList;
 
 public class ModelFactoryController implements Runnable {
 
 	Papeleria papeleria;
+	Persistencia persistencia;
 	PapeleriaAplicacion papeleriaAplicacion;
 	
 	private static class singletonHolder {
@@ -40,6 +42,12 @@ public class ModelFactoryController implements Runnable {
 	
 	private void inicializarDatos() {
 		papeleria = new Papeleria();
+		
+		cargarDatos();
+	}
+
+	private void cargarDatos() {
+		Persistencia.cargarDatosClientes(papeleria);
 	}
 
 	@Override
@@ -59,25 +67,32 @@ public class ModelFactoryController implements Runnable {
 	
 	public Cliente agregarCliente(String cedula, String nombre, String apellido, String telefono, String correoElectronico) throws ClienteException {
 		Cliente cliente = papeleria.agregarCliente(cedula, nombre, apellido, telefono, correoElectronico);
+		Persistencia.guardarCliente(cedula, nombre, apellido, telefono, correoElectronico);
 		return cliente;
 	}
 
 	public Cliente consultarCliente(String idCliente) throws ClienteNoRegistradoException {
 		Cliente cliente = papeleria.obtenerCliente(idCliente);
 		
-		if(cliente == null) throw new ClienteNoRegistradoException("El cliente no se encuentra registrado");
+		if(cliente == null)
+			throw new ClienteNoRegistradoException("El cliente no se encuentra registrado");
+	
 		return cliente;
 	}
 
 	public Cliente actualizarCliente(String cedula, String nombre, String apellido, String telefono,
 			String correoElectronico) throws ClienteNoRegistradoException {
 		Cliente cliente = papeleria.actualizarCliente(cedula, nombre, apellido, telefono, correoElectronico);
+		Persistencia.actualizarCliente(cedula, nombre, apellido, telefono, correoElectronico);
 		
 		return cliente;
 	}
 
 	public boolean eliminarCliente(String cedula) {
-		if(papeleria.eliminarCliente(cedula)) return true;
+		if(papeleria.eliminarCliente(cedula)) {
+			Persistencia.eliminarCliente(cedula);
+			return true;
+		}
 		return false;	
 	}
 	
