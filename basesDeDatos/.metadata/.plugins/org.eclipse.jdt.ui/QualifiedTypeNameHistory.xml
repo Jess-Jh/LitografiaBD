@@ -30,14 +30,12 @@
     <fullyQualifiedTypeName name="javax.net.ssl.SSLPeerUnverifiedException"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.excepciones.ClienteNoRegistradoException"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.excepciones.ProductoNoRegistradoException"/>
-    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Proveedor"/>
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
     <fullyQualifiedTypeName name="javafx.scene.control.SpinnerValueFactory"/>
     <fullyQualifiedTypeName name="javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory"/>
     <fullyQualifiedTypeName name="javafx.scene.input.KeyEvent"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
-    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Factura"/>
     <fullyQualifiedTypeName name="javafx.scene.control.Alert.AlertType"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.excepciones.DatosInvalidosException"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -58,4 +56,6 @@
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="javafx.scene.control.PasswordField"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Producto"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Proveedor"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Factura"/>
 </qualifiedTypeNameHistroy>

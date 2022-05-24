@@ -776,14 +776,14 @@ public class LitografiaController implements Initializable {
   
     @FXML
     void agregarProveedor(ActionEvent event) {
-    	agregarProveedor(txtRutProveedor.getText(), txtIdProveedor.getText(), txtNombreProveedor.getText(), txtTelefonoProveedor.getText());
+    	agregarProveedor(txtIdProveedor.getText(), txtRutProveedor.getText(), txtNombreProveedor.getText(), txtTelefonoProveedor.getText());
     }
 
-	private void agregarProveedor(String rutProveedor, String id, String nombre, String telefono) {
+	private void agregarProveedor(String id, String rutProveedor, String nombre, String telefono) {
 		try {
-			verificarDatosProveedor(rutProveedor, id, nombre, telefono);
+			verificarDatosProveedor(id, rutProveedor, nombre, telefono);
 			
-			Proveedor proveedor = modelFactoryController.agregarProveedor(rutProveedor, id, nombre, telefono);
+			Proveedor proveedor = modelFactoryController.agregarProveedor(id, rutProveedor, nombre, telefono);
 			
 			papeleriaAplicacion.mostrarMensaje("Registro Proveedor", "Registro Proveedor", "El proveedor " + proveedor.getNombre() + "  ha sido registrado con éxito", AlertType.INFORMATION); 					
 	
@@ -796,15 +796,15 @@ public class LitografiaController implements Initializable {
 		}
 	}
 	
-	private boolean verificarDatosProveedor(String rutProveedor, String id, String nombre, String telefono) throws DatosInvalidosException {
+	private boolean verificarDatosProveedor(String id, String rutProveedor, String nombre, String telefono) throws DatosInvalidosException {
 		
 		String notificacion = "";	
 		
-		if(rutProveedor == null || rutProveedor.equals("")) {
-			notificacion += "Ingrese el rut\n";
-		}
 		if(id == null || id.equals("") || id.isEmpty()) {
 			notificacion += "Ingrese el id\n";
+		}
+		if(rutProveedor == null || rutProveedor.equals("")) {
+			notificacion += "Ingrese el rut\n";
 		}
 		if(nombre == null || nombre.equals("")) {
 			notificacion += "Ingrese el nombre\n";
@@ -821,20 +821,20 @@ public class LitografiaController implements Initializable {
     @FXML
     void actualizarProveedor(ActionEvent event) {
     	if(proveedorSeleccion != null) {
-			editarProveedor(txtRutProveedor.getText(), txtIdProveedor.getText(), txtNombreProveedor.getText(), txtTelefonoProveedor.getText());			
+			editarProveedor(txtIdProveedor.getText(), txtRutProveedor.getText(), txtNombreProveedor.getText(), txtTelefonoProveedor.getText());			
 		} else {
 			papeleriaAplicacion.mostrarMensaje("Actualización Proveedor", "Actualización Proveedor", "No se ha seleccionado ningún proveedor", AlertType.WARNING);
 		}
     }
     
-    private void editarProveedor(String rutProveedor, String id, String nombre, String telefono) {
+    private void editarProveedor(String id, String rutProveedor, String nombre, String telefono) {
     	try {
-			verificarDatosProveedor(rutProveedor, id, nombre, telefono);
+			verificarDatosProveedor(id, rutProveedor, nombre, telefono);
 			
-			Proveedor proveedor = modelFactoryController.actualizarProveedor(rutProveedor, id, nombre, telefono);
+			Proveedor proveedor = modelFactoryController.actualizarProveedor(id, rutProveedor, nombre, telefono);
 			
-			proveedorSeleccion.setRUT(rutProveedor);
 			proveedorSeleccion.setId(id);
+			proveedorSeleccion.setRUT(rutProveedor);
 			proveedorSeleccion.setNombre(nombre);
 			proveedorSeleccion.setTelefono(telefono);
 		
@@ -901,9 +901,14 @@ public class LitografiaController implements Initializable {
     }
 
 	private void agregarFactura(String id, LocalDate fecha, String cliente) {
+		
+		LocalDate localDate = fecha;
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		String fechaFactura = localDate.format(formatter);
+		
 		try {
 			verificarDatosFactura(id, fecha, cliente);
-			Factura factura = modelFactoryController.agregarFactura(id, fecha, cliente);
+			Factura factura = modelFactoryController.agregarFactura(id, fechaFactura, cliente);
 			
 			papeleriaAplicacion.mostrarMensaje("Registro Factura", "Registro Factura", "La factura " + factura.getId() + "  ha sido registrada con éxito", AlertType.INFORMATION); 					
 	

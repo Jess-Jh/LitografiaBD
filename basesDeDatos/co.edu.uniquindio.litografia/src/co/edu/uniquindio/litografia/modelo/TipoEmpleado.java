@@ -2,7 +2,7 @@ package co.edu.uniquindio.litografia.modelo;
 
 public enum TipoEmpleado {
 	
-	JEFE_LITOGRAFIA(0), DISEÑADORA(1), SECRETARIA(2), CONTADORA(3);
+	JEFE_LITOGRAFIA(0), DISENADORA(1), SECRETARIA(2), CONTADORA(3);
 	
 	private static final long serialVersionUID = 1L;
 	private int numEmpleado;
@@ -32,7 +32,7 @@ public enum TipoEmpleado {
 		
 			case 0 -> TipoEmpleado.JEFE_LITOGRAFIA;
 			
-			case 1 -> TipoEmpleado.DISEÑADORA;
+			case 1 -> TipoEmpleado.DISENADORA;
 
 			case 2 -> TipoEmpleado.SECRETARIA;
 			

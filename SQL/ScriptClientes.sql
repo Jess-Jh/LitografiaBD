@@ -1,0 +1,2 @@
+INSERT INTO cliente (cedulaCliente, nombre, apellido, telefono, correoElectronico)
+VALUES ('1234', 'Luis', 'Hernandez', '44444', 'correo@correo.com'), ('3456', 'Ana', 'Lopez', '44444', 'correo1@correo.com');

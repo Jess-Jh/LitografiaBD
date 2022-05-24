@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public class Proveedor {
 	
-	private String RUT;
 	private String id;
+	private String RUT;
 	private String nombre;
 	private String telefono;
 	private ArrayList<MateriaPrima> listaMateriasPrimas;
 	
-	public Proveedor(String rUT, String id, String nombre, String telefono) {
-		RUT = rUT;
+	public Proveedor(String id, String rUT, String nombre, String telefono) {
 		this.id = id;
+		RUT = rUT;
 		this.nombre = nombre;
 		this.telefono = telefono;
 		this.listaMateriasPrimas = new ArrayList<>();

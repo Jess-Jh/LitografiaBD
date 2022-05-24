@@ -1,12 +1,11 @@
 package co.edu.uniquindio.litografia.modelo;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Factura {
 	
 	private String id;
-	private LocalDate fecha;
+	private String fecha;
 	private double precio;
 	private Cliente cliente;
 	private String cedulaCliente;
@@ -15,7 +14,7 @@ public class Factura {
 	private ArrayList<Litografia> listaLitografias;
 	private ArrayList<Empleado> listaEmpleados;
 	
-	public Factura(String id, LocalDate fecha, Cliente cliente, String cedulaCliente) {
+	public Factura(String id, String fecha, Cliente cliente, String cedulaCliente) {
 		this.id = id;
 		this.fecha = fecha;
 		this.cliente = cliente;
@@ -24,6 +23,7 @@ public class Factura {
 		this.listaDisenos = new ArrayList<>();
 		this.listaLitografias = new ArrayList<>();
 		this.listaEmpleados = new ArrayList<>();
+
 	}
 	
 	public String getId() {
@@ -32,10 +32,10 @@ public class Factura {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public LocalDate getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
-	public void setFecha(LocalDate fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 	public double getPrecio() {

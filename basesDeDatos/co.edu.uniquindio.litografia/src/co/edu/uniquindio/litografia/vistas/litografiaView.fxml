@@ -313,16 +313,16 @@
                                           </Pane>
                                           <Pane layoutX="49.0" layoutY="106.0" prefHeight="158.0" prefWidth="557.0" style="-fx-background-radius: 10px; -fx-background-color: #000E68;">
                                              <children>
-                                                <ComboBox fx:id="cmbClienteFactura" layoutX="136.0" layoutY="104.0" prefHeight="25.0" prefWidth="381.0" style="-fx-background-color: white;">
+                                                <ComboBox fx:id="cmbClienteFactura" layoutX="150.0" layoutY="104.0" prefHeight="25.0" prefWidth="367.0" promptText="Seleccione la cédula del cliente" style="-fx-background-color: white;">
                                                    <cursor>
                                                       <Cursor fx:constant="HAND" />
                                                    </cursor></ComboBox>
-                                                <DatePicker fx:id="txtFechaFactura" layoutX="137.0" layoutY="65.0" prefHeight="25.0" prefWidth="381.0" style="-fx-background-color: white;">
+                                                <DatePicker fx:id="txtFechaFactura" layoutX="150.0" layoutY="65.0" prefHeight="25.0" prefWidth="368.0" style="-fx-background-color: white;">
                                                    <cursor>
                                                       <Cursor fx:constant="HAND" />
                                                    </cursor></DatePicker>
-                                                <TextField fx:id="txtIdFactura" layoutX="136.0" layoutY="31.0" prefHeight="25.0" prefWidth="381.0" style="-fx-background-color: white;" />
-                                                <Label layoutX="36.0" layoutY="105.0" text="Cliente:" textFill="WHITE">
+                                                <TextField fx:id="txtIdFactura" layoutX="150.0" layoutY="29.0" prefHeight="25.0" prefWidth="367.0" style="-fx-background-color: white;" />
+                                                <Label layoutX="36.0" layoutY="105.0" text="Cédula Cliente:" textFill="WHITE">
                                                    <font>
                                                       <Font size="16.0" />
                                                    </font>

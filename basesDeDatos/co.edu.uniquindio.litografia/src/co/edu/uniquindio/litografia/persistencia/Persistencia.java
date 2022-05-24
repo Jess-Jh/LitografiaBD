@@ -5,10 +5,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import co.edu.uniquindio.litografia.modelo.Cliente;
+import co.edu.uniquindio.litografia.modelo.Empleado;
+import co.edu.uniquindio.litografia.modelo.Factura;
 import co.edu.uniquindio.litografia.modelo.Papeleria;
 import co.edu.uniquindio.litografia.modelo.Producto;
+import co.edu.uniquindio.litografia.modelo.Proveedor;
+import co.edu.uniquindio.litografia.modelo.TipoEmpleado;
 
 public class Persistencia {
 	
@@ -174,10 +180,210 @@ public class Persistencia {
 		} catch (SQLException e) {
 			System.out.println("Error al eliminar el producto de la base de datos " + e.getMessage());
 		}
-		
 	}
-		
 	// ----------------------------------------------------------------------------------------------------------------------------------------------------||
 
+	// ------------------------------------------------------------CRUD Proveedor ------------------------------------------------------------------------->>
+	public static void guardarProveedor(String idProveedor, String rutProveedor, String nombre, String telefono) {
+				
+		try {
+			String insertProducto = "insert into proveedor (idProveedor, rut, nombre, telefono) "
+								  + "values (?, ?, ?, ?)";
+			PreparedStatement pst = con.prepareStatement(insertProducto);
+			
+			pst.setString(1, idProveedor);
+			pst.setString(2, rutProveedor);
+			pst.setString(3, nombre);
+			pst.setString(4, telefono);
+			
+			pst.execute();
+			System.out.println("Proveedor almacenado correctamente en la base de datos");
+			
+		} catch (SQLException e) {
+			System.out.println("Error al almacenar el proveedor en la base de datos " + e.getMessage());
+		}
+	}
+
+	public static void cargarDatosProveedoor(Papeleria papeleria) {
+		Proveedor proveedor;
+		String selectProveedor = "select * from proveedor";
+		
+		Statement st;
+		try {
+			st = con.createStatement();
+			ResultSet rs = st.executeQuery(selectProveedor);
+			
+			while(rs.next()) {
+				proveedor = new Proveedor(rs.getString("idProveedor"), rs.getString("RUT"), rs.getString("nombre"), rs.getString("telefono"));
+				papeleria.getListaProveedores().add(proveedor);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("Error al cargar el proveedor de la base de datos " + e.getMessage());
+		}
+	}
+	
+	public static void actualizarProveedor(String idProveedor, String rutProveedor, String nombre, String telefono) {
+		
+		try {
+			String updateProveedor = "update proveedor "
+					+ "set idProveedor = ?, rut = ?, nombre = ?, telefono = ? "
+					+ "where idProveedor = ?";
+			
+			PreparedStatement pst = con.prepareStatement(updateProveedor);		
+			
+			pst.setString(1, idProveedor);
+			pst.setString(2, rutProveedor);
+			pst.setString(3, nombre);
+			pst.setString(4, telefono);
+			pst.setString(5, idProveedor);
+			
+			pst.execute();
+			System.out.println("Se actualizó el proveedor correctamente en la base de datos");
+			
+		} catch (SQLException e) {
+			System.out.println("Error al actualizar el proveedor en la base de datos " + e.getMessage());
+		}
+	}
+
+	public static void eliminarProveedor(String idProveedor) {
+				
+		try {
+			String deleteProveedor = "delete from proveedor where idProveedor = " + idProveedor;
+			Statement st = con.createStatement();
+			
+			int flag = st.executeUpdate(deleteProveedor);
+			
+			if(flag >= 0) System.out.println("Proveedor eliminado");
+			
+		} catch (SQLException e) {
+			System.out.println("Error al eliminar el proveedor de la base de datos " + e.getMessage());
+		}
+	}
+	// ----------------------------------------------------------------------------------------------------------------------------------------------------||
+
+	// ------------------------------------------------------------CRUD Factura ------------------------------------------------------------------------->>
+	public static void guardarFactura(String idFactura, String fecha, String cliente) {
+						
+		try {
+			String insertFactura = "insert into factura (idFactura, fecha, precio, idCliente) "
+								  + "values (?, ?, ?, ?)";
+			PreparedStatement pst = con.prepareStatement(insertFactura);
+			
+			pst.setString(1, idFactura);
+			pst.setString(2, fecha);
+			pst.setString(3, null);
+			pst.setString(4, cliente);
+			
+			pst.execute();
+			System.out.println("Factura almacenada correctamente en la base de datos");
+			
+		} catch (SQLException e) {
+			System.out.println("Error al almacenar la factura en la base de datos " + e.getMessage());
+		}
+	}
+
+	public static void cargarDatosFactura(Papeleria papeleria) {
+		Factura factura;
+		Cliente clienteFactura = null;
+		String selectFactura = "select * from factura";
+		
+		Statement st;
+		try {
+			st = con.createStatement();
+			ResultSet rs = st.executeQuery(selectFactura);
+			
+			
+			while(rs.next()) {
+				
+				for (Cliente cliente : papeleria.getListaClientes()) {
+					if(cliente.getCedula().equalsIgnoreCase(rs.getString("idCliente")))
+						clienteFactura = cliente;
+				}
+				factura = new Factura(rs.getString("idFactura"), rs.getString("fecha"), clienteFactura, clienteFactura.getCedula());
+				papeleria.getListaFacturas().add(factura);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("Error al cargar la factura de la base de datos " + e.getMessage());
+		}
+	}
+	
+
+	public static void eliminarFactura(String idFactura) {
+				
+		try {
+			String deleteFactura = "delete from factura where idFactura = " + idFactura;
+			Statement st = con.createStatement();
+			
+			int flag = st.executeUpdate(deleteFactura);
+			
+			if(flag >= 0) System.out.println("Factura eliminada");
+			
+		} catch (SQLException e) {
+			System.out.println("Error al eliminar la factura de la base de datos " + e.getMessage());
+		}
+	}
+	// ----------------------------------------------------------------------------------------------------------------------------------------------------||
+	
+	// ----------------------------------------------------- CARGAR DEMÁS DATOS DE LA BASE DE DATOS ------------------------------------------------------->>
+	
+	public static void cargarDatosEmpleados(Papeleria papeleria) {
+		Empleado empleado;
+		String selectEmpleado = "select * from empleado";
+		TipoEmpleado tipoEmpleado;
+		
+		Statement st;
+		try {
+			st = con.createStatement();
+			ResultSet rs = st.executeQuery(selectEmpleado);
+			
+			
+			while(rs.next()) {
+				
+				tipoEmpleado = buscarTipoEmpleado(rs.getString("tipo")); 
+				
+				empleado = new Empleado(rs.getString("cedulaEmpleado"), rs.getString("nombre"), rs.getString("apellido"), rs.getString("eps"), 
+										rs.getString("titulo"), rs.getDouble("sueldo"), tipoEmpleado, rs.getString("direccion"),
+										rs.getString("usuario"), rs.getString("contrasena"), rs.getBoolean("inicioSesion"));
+				papeleria.getListaEmpleados().add(empleado);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("Error al cargar los empleados de la base de datos " + e.getMessage());
+		}
+	}
+	
+	private static TipoEmpleado buscarTipoEmpleado(String tipoEmpleado) {
+		TipoEmpleado tipoEmpleado2 = null;
+		
+		if(tipoEmpleado.equalsIgnoreCase(TipoEmpleado.CONTADORA.toString()))
+			tipoEmpleado2 = TipoEmpleado.CONTADORA;
+		else if(tipoEmpleado.equalsIgnoreCase(TipoEmpleado.DISENADORA.toString()))
+			tipoEmpleado2 = TipoEmpleado.DISENADORA;
+		else if(tipoEmpleado.equalsIgnoreCase(TipoEmpleado.JEFE_LITOGRAFIA.toString()))
+			tipoEmpleado2 = TipoEmpleado.JEFE_LITOGRAFIA;
+		else if(tipoEmpleado.equalsIgnoreCase(TipoEmpleado.SECRETARIA.toString()))
+			tipoEmpleado2 = TipoEmpleado.SECRETARIA;
+		
+		return tipoEmpleado2;
+	}
+
+	public static void cambiarEstadosesion(Empleado empleado, boolean sesionIniciada) {
+			
+		try {
+			String updateEmpleado = "update empleado "
+								 + "set inicioSesion = " + sesionIniciada
+								 + " where cedulaEmpleado = " + empleado.getCedula();
+			Statement st = con.createStatement();
+			
+			int flag = st.executeUpdate(updateEmpleado);
+			
+			if(flag >= 0) System.out.println("Sesión cambiada");
+			
+		} catch (SQLException e) {
+			System.out.println("Error al guardar sesión de la base de datos " + e.getMessage());
+		}
+	}
 
 }

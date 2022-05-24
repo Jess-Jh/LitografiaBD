@@ -10,6 +10,7 @@ import co.edu.uniquindio.litografia.excepciones.ProductoException;
 import co.edu.uniquindio.litografia.excepciones.ProductoNoRegistradoException;
 import co.edu.uniquindio.litografia.excepciones.ProveedorException;
 import co.edu.uniquindio.litografia.excepciones.ProveedorNoRegistradoException;
+import co.edu.uniquindio.litografia.persistencia.Persistencia;
 import javafx.collections.ObservableList;
 
 public class Papeleria {
@@ -42,10 +43,10 @@ public class Papeleria {
 		this.listaProductos = new ArrayList<>();
 		this.listaProveedores = new ArrayList<>();
 		
-		Empleado empleado = new Empleado("12343", "Luis", "Martinez", "Salud", "Diseñador", 1600000, TipoEmpleado.DISEÑADORA, "Cra 18 #34-25", "lumar", "123", true);
+		Empleado empleado = new Empleado("12343", "Luis", "Martinez", "Salud", "Diseñador", 1600000, TipoEmpleado.DISENADORA, "Cra 18 #34-25", "lumar", "123", false);
 		getListaEmpleados().add(empleado);
-
-		Empleado empleado1 = new Empleado("12343", "Andrea", "Fajardo", "Salud", "Diseñador", 1600000, TipoEmpleado.DISEÑADORA, "Cra 18 #34-25", "anfa", "456", false);
+		
+		Empleado empleado1 = new Empleado("12343", "Andrea", "Fajardo", "Salud", "Diseñador", 1600000, TipoEmpleado.DISENADORA, "Cra 18 #34-25", "anfa", "456", false);
 		getListaEmpleados().add(empleado1);
 		
 		Cliente cliente = new Cliente("2141243", "241243", "sdfasdfsaf", "sfasdfasf", "sdfasfdasf");
@@ -54,7 +55,7 @@ public class Papeleria {
 		Producto producto = new Producto("2", "Diseño", 200);
 		getListaProductos().add(producto);
 		
-		Factura factura = new Factura("3", LocalDate.now(), cliente, "1234");
+		Factura factura = new Factura("3", "2022-05-19", cliente, "1234");
 		getListaFacturas().add(factura);
 	}
 	
@@ -252,11 +253,11 @@ public class Papeleria {
 	
 	// ------------------------------------------------------------CRUD Proveedor ------------------------------------------------------------------------>>
 
-	public Proveedor agregarProveedor(String rutProveedor, String id, String nombre, String telefono) throws ProveedorException {
+	public Proveedor agregarProveedor(String id, String rutProveedor, String nombre, String telefono) throws ProveedorException {
 		if(existeProveedor(id)) {
 			throw new ProveedorException("El proveedor con id " + id + " ya se encuentra registrado");
 		} else {
-			Proveedor proveedor = new Proveedor(rutProveedor, id, nombre, telefono);
+			Proveedor proveedor = new Proveedor(id, rutProveedor, nombre, telefono);
 			listaProveedores.add(proveedor);
 			return proveedor;
 		}
@@ -270,12 +271,12 @@ public class Papeleria {
 		return false;
 	}
 
-	public Proveedor actualizarProveedor(String rutProveedor, String id, String nombre, String telefono) throws ProveedorNoRegistradoException {
+	public Proveedor actualizarProveedor(String id, String rutProveedor, String nombre, String telefono) throws ProveedorNoRegistradoException {
 		Proveedor proveedor = obtenerProveedor(id);
 		
 		if(proveedor != null) {
-			proveedor.setRUT(rutProveedor);
 			proveedor.setId(id);
+			proveedor.setRUT(rutProveedor);
 			proveedor.setNombre(nombre);
 			proveedor.setTelefono(telefono);
 
@@ -308,7 +309,7 @@ public class Papeleria {
 	
 	// ------------------------------------------------------------CRUD Factura ------------------------------------------------------------------------>>
 
-	public Factura agregarFactura(String id, LocalDate fecha, String cliente) throws FacturaException {
+	public Factura agregarFactura(String id, String fecha, String cliente) throws FacturaException {
 		if(existeFactura(id)) {
 			throw new FacturaException("La factura con id " + id + " ya se encuentra registrada");
 		} else {
@@ -380,6 +381,7 @@ public class Papeleria {
 		for (Empleado empleado : listaEmpleados) {
 			if(empleado.isInicioSesion() == true) {
 				empleado.setInicioSesion(false);
+				Persistencia.cambiarEstadosesion(empleado, false);
 				return true;
 			}
 		}

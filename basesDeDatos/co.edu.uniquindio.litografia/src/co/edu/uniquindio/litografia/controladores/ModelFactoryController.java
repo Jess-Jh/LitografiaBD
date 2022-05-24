@@ -49,6 +49,9 @@ public class ModelFactoryController implements Runnable {
 	private void cargarDatos() {
 		Persistencia.cargarDatosClientes(papeleria);
 		Persistencia.cargarDatosProductos(papeleria);
+		Persistencia.cargarDatosProveedoor(papeleria);
+		Persistencia.cargarDatosFactura(papeleria);
+		Persistencia.cargarDatosEmpleados(papeleria);
 	}
 
 	@Override
@@ -131,13 +134,15 @@ public class ModelFactoryController implements Runnable {
 	
 	// ----------------------------------------------------------------CRUD Proveedor ---------------------------------------------------------------------->>
 
-	public Proveedor agregarProveedor(String rutProveedor, String id, String nombre, String telefono) throws ProveedorException {
-		Proveedor proveedor = papeleria.agregarProveedor(rutProveedor, id, nombre, telefono);
+	public Proveedor agregarProveedor(String id, String rutProveedor, String nombre, String telefono) throws ProveedorException {
+		Proveedor proveedor = papeleria.agregarProveedor(id, rutProveedor, nombre, telefono);
+		Persistencia.guardarProveedor(id, rutProveedor, nombre, telefono);
 		return proveedor;
 	}
 
-	public Proveedor actualizarProveedor(String rutProveedor, String id, String nombre, String telefono) throws ProveedorNoRegistradoException {
-		Proveedor proveedor = papeleria.actualizarProveedor(rutProveedor, id, nombre, telefono);
+	public Proveedor actualizarProveedor(String id, String rutProveedor, String nombre, String telefono) throws ProveedorNoRegistradoException {
+		Proveedor proveedor = papeleria.actualizarProveedor(id, rutProveedor, nombre, telefono);
+		Persistencia.actualizarProveedor(id, rutProveedor, nombre, telefono);
 		return proveedor;
 	}
 
@@ -149,7 +154,10 @@ public class ModelFactoryController implements Runnable {
 	}
 
 	public boolean eliminarProveedor(String id) {
-		if(papeleria.eliminarProveedor(id)) return true;
+		if(papeleria.eliminarProveedor(id)) {
+			Persistencia.eliminarProveedor(id);
+			return true;
+		}
 		return false;
 	}
 	
@@ -157,13 +165,17 @@ public class ModelFactoryController implements Runnable {
 	
 	// ----------------------------------------------------------------CRUD Factura ---------------------------------------------------------------------->>
 
-	public Factura agregarFactura(String id, LocalDate fecha, String cliente) throws FacturaException {
+	public Factura agregarFactura(String id, String fecha, String cliente) throws FacturaException {
 		Factura factura = papeleria.agregarFactura(id, fecha, cliente);
+		Persistencia.guardarFactura(id, fecha, cliente);
 		return factura;
 	}
 
 	public boolean eliminarFactura(String id) {
-		if(papeleria.eliminarFactura(id)) return true;
+		if(papeleria.eliminarFactura(id)) {
+			Persistencia.eliminarFactura(id);
+			return true;
+		}
 		return false;
 	}
 
@@ -178,6 +190,8 @@ public class ModelFactoryController implements Runnable {
 	public Empleado iniciarSesionUsuario(String usuario, String contrasena, boolean sesionIniciada) throws InicioSesionException {
 		
 		Empleado empleado = papeleria.confirmarInicioSesion(usuario, contrasena, sesionIniciada);
+		
+		if(sesionIniciada == true) Persistencia.cambiarEstadosesion(empleado, sesionIniciada);
 		
 		if(empleado == null) throw new InicioSesionException("El usuario " + usuario + " o contraseña es incorrecto");
 		
