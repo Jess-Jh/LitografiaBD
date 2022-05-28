@@ -39,7 +39,6 @@
     <fullyQualifiedTypeName name="javafx.scene.control.Alert.AlertType"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.excepciones.DatosInvalidosException"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.TipoEmpleado"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.aplicacion.PapeleriaAplicacion"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.controladores.InicioSesionController"/>
     <fullyQualifiedTypeName name="javafx.scene.paint.Color"/>
@@ -52,10 +51,11 @@
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Cliente"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Papeleria"/>
-    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.persistencia.Persistencia"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="javafx.scene.control.PasswordField"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Producto"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Proveedor"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Factura"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.TipoEmpleado"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.persistencia.Persistencia"/>
 </qualifiedTypeNameHistroy>

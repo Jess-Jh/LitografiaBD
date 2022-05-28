@@ -1050,7 +1050,8 @@ public class LitografiaController implements Initializable {
     	if(modelFactoryController.cerrarSesion())
     		papeleriaAplicacion.mostrarInicioSesionView();
     	else
-    		papeleriaAplicacion.mostrarMensaje("Cerrar Sesión", "Cerrar Sesión", "Ocurrió un problema al momento de cerrar la sesión", AlertType.WARNING);
+    		papeleriaAplicacion.mostrarInicioSesionView();
+//    		papeleriaAplicacion.mostrarMensaje("Cerrar Sesión", "Cerrar Sesión", "Ocurrió un problema al momento de cerrar la sesión", AlertType.WARNING);
     }
 
 
