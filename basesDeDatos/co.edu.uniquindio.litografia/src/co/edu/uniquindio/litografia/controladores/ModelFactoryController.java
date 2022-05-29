@@ -182,6 +182,7 @@ public class ModelFactoryController implements Runnable {
 	public Factura agregarDetalleFactura(String idFactura, ObservableList<Producto> listadoDetalleFactura, double valorFactura) {
 		
 		Factura factura = papeleria.agregarDetalleFactura(idFactura, listadoDetalleFactura, valorFactura);
+		Persistencia.agregarDetalleFactura(idFactura, listadoDetalleFactura, valorFactura);
 		return factura;
 	}
 	

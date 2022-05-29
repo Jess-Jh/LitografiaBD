@@ -1024,6 +1024,8 @@ public class LitografiaController implements Initializable {
     	
     	if(txtIdFacturaSeleccionada.getText() == null || txtIdFacturaSeleccionada.getText().equals("") || txtIdFacturaSeleccionada.getText().isEmpty()) {
     		papeleriaAplicacion.mostrarMensaje("Notificación Pago Factura", "Pagar Factura", "Seleccione la factura a la que desea agregarle la venta" ,AlertType.WARNING);
+    	} else if(txtTotalFactura.getText() == null || txtTotalFactura.getText().equals("") || txtTotalFactura.getText().isEmpty()) {
+    		papeleriaAplicacion.mostrarMensaje("Notificación Pago Factura", "Pagar Factura", "Seleccione cualquier producto para realizar la compra" ,AlertType.WARNING);    		
     	} else {
     		String idFactura = txtIdFacturaSeleccionada.getText();
     		double valorFactura = Double.valueOf(txtTotalFactura.getText());

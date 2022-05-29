@@ -406,7 +406,7 @@
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
                                                 </Button>
-                                                <Label id="txtIdFacturaDetalle" fx:id="txtIdFacturaSeleccionada" layoutX="336.0" layoutY="12.0" prefHeight="27.0" prefWidth="29.0">
+                                                <Label id="txtIdFacturaDetalle" fx:id="txtIdFacturaSeleccionada" layoutX="336.0" layoutY="12.0" prefHeight="27.0" prefWidth="99.0">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>

@@ -15,6 +15,7 @@ import co.edu.uniquindio.litografia.modelo.Papeleria;
 import co.edu.uniquindio.litografia.modelo.Producto;
 import co.edu.uniquindio.litografia.modelo.Proveedor;
 import co.edu.uniquindio.litografia.modelo.TipoEmpleado;
+import javafx.collections.ObservableList;
 
 public class Persistencia {
 	
@@ -368,6 +369,56 @@ public class Persistencia {
 		
 		return tipoEmpleado2;
 	}
+	
+	public static void agregarDetalleFactura(String idFactura, ObservableList<Producto> listadoDetalleFactura, double valorFactura) {
+		try {
+			String updateFactura = "update factura "
+								 + "set precio = " + valorFactura
+								 + " where idFactura = " + idFactura;
+			Statement st = con.createStatement();
+			
+			int flag = st.executeUpdate(updateFactura);
+			
+			if(flag >= 0) System.out.println("Factura actualizada");
+			
+			agregarFacturaProducto(idFactura, listadoDetalleFactura);
+			
+		} catch (SQLException e) {
+			System.out.println("Error al actualizar la factura en la base de datos " + e.getMessage());
+		}
+		
+	}
+
+	private static void agregarFacturaProducto(String idFactura, ObservableList<Producto> listadoDetalleFactura) {
+		
+		for (Producto producto : listadoDetalleFactura) {
+			
+			String descripcion = "Producto " + producto.getTipo() + " con un valor de "  + producto.getPrecio() + " adquirido para la venta en la factura identificada con un id " + idFactura;
+			
+			try {
+				// Habilitar la foreign_key
+				Statement st = con.createStatement();
+				String updateFacturaProducto = "set foreign_key_checks=0; ";
+				int flag = st.executeUpdate(updateFacturaProducto);
+				if(flag >= 0) System.out.println("foreign_key_checks!");
+				
+				String insertFacturaProducto = "insert into facturaproducto(Producto_idProducto, Factura_idFactura, descripcion) "
+						+ "values (?, ?, ?)";
+				
+				PreparedStatement pst = con.prepareStatement(insertFacturaProducto);
+				
+				pst.setString(1, producto.getId());
+				pst.setString(2, idFactura);
+				pst.setString(3, descripcion);
+								
+				pst.execute();
+				System.out.println("Factura producto almacenada correctamente en la base de datos");
+				
+			} catch (SQLException e) {
+				System.out.println("Error al almacenar la factura del producto en la base de datos " + e.getMessage());
+			}
+		}
+	}
 
 	public static void cambiarEstadosesion(Empleado empleado, boolean sesionIniciada) {
 			
@@ -385,5 +436,7 @@ public class Persistencia {
 			System.out.println("Error al guardar sesión de la base de datos " + e.getMessage());
 		}
 	}
+
+	
 
 }
