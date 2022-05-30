@@ -1,5 +1,7 @@
 package co.edu.uniquindio.litografia.persistencia;
 
+import java.io.File;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +10,9 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import javax.swing.JFrame;
+
+import co.edu.uniquindio.litografia.aplicacion.PapeleriaAplicacion;
 import co.edu.uniquindio.litografia.modelo.Cliente;
 import co.edu.uniquindio.litografia.modelo.Empleado;
 import co.edu.uniquindio.litografia.modelo.Factura;
@@ -16,6 +21,19 @@ import co.edu.uniquindio.litografia.modelo.Producto;
 import co.edu.uniquindio.litografia.modelo.Proveedor;
 import co.edu.uniquindio.litografia.modelo.TipoEmpleado;
 import javafx.collections.ObservableList;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class Persistencia {
 	
@@ -435,6 +453,56 @@ public class Persistencia {
 		} catch (SQLException e) {
 			System.out.println("Error al guardar sesión de la base de datos " + e.getMessage());
 		}
+	}
+
+	 // -------------------------------------------------------------- REPORTES -------------------------------------------------------------------------->>
+	   
+	public static void generarReporte1() {	
+		
+				
+		try {
+			JasperReport reporte = null;
+			File file = new File("src/resource/ReporteSimple1.jasper");
+
+			
+			// Cargando el archivo jasper
+			reporte = (JasperReport) JRLoader.loadObject(file);
+
+			
+			// Generando la información del reporte
+			JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
+			
+			// Vista del reporte
+			JasperViewer view = new JasperViewer(jprint, false);
+			
+			JFrame.setDefaultLookAndFeelDecorated(true);
+			
+			view.setVisible(true);
+			
+		} catch (JRException e) {
+			System.out.println("Error al generar reporte " + e);
+		}
+		
+		// descarga dentro del mismo proyecto
+//		JasperPrint jasperPrint;
+//		try {
+//			jasperPrint = JasperFillManager.fillReport("src\\resource\\ReporteSimple1.jasper", null, con);
+//		
+//			JRPdfExporter exp = new JRPdfExporter();
+//			exp.setExporterInput(new SimpleExporterInput(jasperPrint));
+//			exp.setExporterOutput(new SimpleOutputStreamExporterOutput("ReporteAlumnos.pdf"));
+//			SimplePdfExporterConfiguration conf = new SimplePdfExporterConfiguration();
+//			exp.setConfiguration(conf);
+//			exp.exportReport();
+//
+//			
+//			JasperPrint jasperPrintWindow = JasperFillManager.fillReport("src\\resource\\ReporteSimple1.jasper", null,con);
+//			JasperViewer jasperViewer = new JasperViewer(jasperPrintWindow);
+//			jasperViewer.setVisible(true);
+//		
+//		} catch (JRException e) {
+//			System.out.println("Error al generar reporte " + e);
+//		}
 	}
 
 	

@@ -30,11 +30,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 
@@ -117,6 +119,15 @@ public class LitografiaController implements Initializable {
     
     @FXML
     private Button btnCerrarSesion;
+    
+    @FXML
+    private Button btnGenerarReporte;
+    
+    @FXML
+    private ToggleGroup groupReportes;
+
+    @FXML
+    private RadioButton rbtPrimerReporte;
 
     @FXML
     private ComboBox<String> cmbClienteFactura;
@@ -244,6 +255,9 @@ public class LitografiaController implements Initializable {
 
     @FXML
     private TextField txtTipoProducto;
+    
+    @FXML
+    private TextField txtPrimerReporte;
 
     @FXML
     private Label txtTotalFactura;
@@ -1037,7 +1051,7 @@ public class LitografiaController implements Initializable {
     		txtIdFacturaSeleccionada.setText("");
     		txtIdFacturaSeleccionada1.setText("");
     		txtTotalFactura.setText("");
-    		txtProductoSeleccionado.setText("");
+     		txtProductoSeleccionado.setText("");
     		
     		listadoDetalleFactura.clear();
     		tableViewDetalleFactura.setItems(listadoDetalleFactura);
@@ -1054,6 +1068,19 @@ public class LitografiaController implements Initializable {
     	else
     		papeleriaAplicacion.mostrarInicioSesionView();
 //    		papeleriaAplicacion.mostrarMensaje("Cerrar Sesión", "Cerrar Sesión", "Ocurrió un problema al momento de cerrar la sesión", AlertType.WARNING);
+    }
+    
+    // -------------------------------------------------------------- REPORTES -------------------------------------------------------------------------->>
+    
+    @FXML
+    void generarReporte(ActionEvent event) {
+    	
+    	if(rbtPrimerReporte.isSelected()) {
+    		
+    		modelFactoryController.generarReporte1();
+    		
+    	}
+
     }
 
 

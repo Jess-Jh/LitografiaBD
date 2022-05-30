@@ -204,5 +204,11 @@ public class ModelFactoryController implements Runnable {
 		return sesion;
 	}
 
+	 // -------------------------------------------------------------- REPORTES -------------------------------------------------------------------------->>
+	   
+	public void generarReporte1() {
+		Persistencia.generarReporte1();
+	}
+
 
 }

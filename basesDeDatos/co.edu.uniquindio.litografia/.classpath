@@ -8,6 +8,8 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Fonts"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SQL"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JasperReports 6.19.1"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JasperReports"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
