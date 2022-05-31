@@ -206,8 +206,8 @@ public class ModelFactoryController implements Runnable {
 
 	 // -------------------------------------------------------------- REPORTES -------------------------------------------------------------------------->>
 	   
-	public void generarReporte1() {
-		Persistencia.generarReporte1();
+	public void generarReporte1(String nombre) {
+		Persistencia.generarReporte1(nombre);
 	}
 
 

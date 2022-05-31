@@ -1075,9 +1075,14 @@ public class LitografiaController implements Initializable {
     @FXML
     void generarReporte(ActionEvent event) {
     	
-    	if(rbtPrimerReporte.isSelected()) {
-    		
-    		modelFactoryController.generarReporte1();
+    	if(txtPrimerReporte.getText() == null || txtPrimerReporte.getText().equals("") || txtPrimerReporte.getText().isEmpty()) {
+    		papeleriaAplicacion.mostrarMensaje("Notificación Primer reporte", "Pagar Reporte", "Escriba una letra o palabra para generar el reporte", AlertType.WARNING);
+    	} else {
+    		if(rbtPrimerReporte.isSelected()) {
+    			
+    			modelFactoryController.generarReporte1(txtPrimerReporte.getText());
+    			
+    		}
     		
     	}
 

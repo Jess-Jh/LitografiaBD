@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.JFrame;
 
@@ -457,20 +459,22 @@ public class Persistencia {
 
 	 // -------------------------------------------------------------- REPORTES -------------------------------------------------------------------------->>
 	   
-	public static void generarReporte1() {	
+	public static void generarReporte1(String nombre) {	
 		
-				
+		String filtro = "%"+ nombre +"%";
+			
 		try {
 			JasperReport reporte = null;
 			File file = new File("src/resource/ReporteSimple1.jasper");
 
+			Map<String, Object> parametro = new HashMap<>();
+			parametro.put("nombre", filtro);
 			
 			// Cargando el archivo jasper
 			reporte = (JasperReport) JRLoader.loadObject(file);
 
-			
 			// Generando la información del reporte
-			JasperPrint jprint = JasperFillManager.fillReport(reporte, null, con);
+			JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro, con);
 			
 			// Vista del reporte
 			JasperViewer view = new JasperViewer(jprint, false);
@@ -481,30 +485,11 @@ public class Persistencia {
 			
 		} catch (JRException e) {
 			System.out.println("Error al generar reporte " + e);
+		} catch(Exception e) {
+			System.out.println("Error " + e);			
 		}
 		
-		// descarga dentro del mismo proyecto
-//		JasperPrint jasperPrint;
-//		try {
-//			jasperPrint = JasperFillManager.fillReport("src\\resource\\ReporteSimple1.jasper", null, con);
-//		
-//			JRPdfExporter exp = new JRPdfExporter();
-//			exp.setExporterInput(new SimpleExporterInput(jasperPrint));
-//			exp.setExporterOutput(new SimpleOutputStreamExporterOutput("ReporteAlumnos.pdf"));
-//			SimplePdfExporterConfiguration conf = new SimplePdfExporterConfiguration();
-//			exp.setConfiguration(conf);
-//			exp.exportReport();
-//
-//			
-//			JasperPrint jasperPrintWindow = JasperFillManager.fillReport("src\\resource\\ReporteSimple1.jasper", null,con);
-//			JasperViewer jasperViewer = new JasperViewer(jasperPrintWindow);
-//			jasperViewer.setVisible(true);
-//		
-//		} catch (JRException e) {
-//			System.out.println("Error al generar reporte " + e);
-//		}
 	}
 
-	
 
 }
