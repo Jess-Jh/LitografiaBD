@@ -1,20 +1,16 @@
 package co.edu.uniquindio.litografia.persistencia;
 
 import java.io.File;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JFrame;
 
-import co.edu.uniquindio.litografia.aplicacion.PapeleriaAplicacion;
 import co.edu.uniquindio.litografia.modelo.Cliente;
 import co.edu.uniquindio.litografia.modelo.Empleado;
 import co.edu.uniquindio.litografia.modelo.Factura;
@@ -24,17 +20,10 @@ import co.edu.uniquindio.litografia.modelo.Proveedor;
 import co.edu.uniquindio.litografia.modelo.TipoEmpleado;
 import javafx.collections.ObservableList;
 import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.export.SimpleExporterInput;
-import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
-import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
 import net.sf.jasperreports.view.JasperViewer;
 
 public class Persistencia {
@@ -378,10 +367,10 @@ public class Persistencia {
 	private static TipoEmpleado buscarTipoEmpleado(String tipoEmpleado) {
 		TipoEmpleado tipoEmpleado2 = null;
 		
-		if(tipoEmpleado.equalsIgnoreCase(TipoEmpleado.CONTADORA.toString()))
-			tipoEmpleado2 = TipoEmpleado.CONTADORA;
-		else if(tipoEmpleado.equalsIgnoreCase(TipoEmpleado.DISENADORA.toString()))
-			tipoEmpleado2 = TipoEmpleado.DISENADORA;
+		if(tipoEmpleado.equalsIgnoreCase(TipoEmpleado.CONTADOR.toString()))
+			tipoEmpleado2 = TipoEmpleado.CONTADOR;
+		else if(tipoEmpleado.equalsIgnoreCase(TipoEmpleado.DISENADOR.toString()))
+			tipoEmpleado2 = TipoEmpleado.DISENADOR;
 		else if(tipoEmpleado.equalsIgnoreCase(TipoEmpleado.JEFE_LITOGRAFIA.toString()))
 			tipoEmpleado2 = TipoEmpleado.JEFE_LITOGRAFIA;
 		else if(tipoEmpleado.equalsIgnoreCase(TipoEmpleado.SECRETARIA.toString()))
@@ -489,6 +478,53 @@ public class Persistencia {
 			System.out.println("Error " + e);			
 		}
 		
+	}
+
+	public static void generarReporte2(String tipoEmpleado) {
+		
+		String filtroTipoEmpleado = tipo(tipoEmpleado);
+				
+		try {
+			JasperReport reporte = null;
+			File file = new File("src/resource/Reporte2.jasper");
+
+			Map<String, Object> parametro = new HashMap<>();
+			parametro.put("tipo", filtroTipoEmpleado);
+			
+			// Cargando el archivo jasper
+			reporte = (JasperReport) JRLoader.loadObject(file);
+
+			// Generando la información del reporte
+			JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro, con);
+			
+			// Vista del reporte
+			JasperViewer view = new JasperViewer(jprint, false);
+			
+			JFrame.setDefaultLookAndFeelDecorated(true);
+			
+			view.setVisible(true);
+			
+		} catch (JRException e) {
+			System.out.println("Error al generar reporte " + e);
+		} catch(Exception e) {
+			System.out.println("Error " + e);			
+		}
+		
+	}
+
+	private static String tipo(String tipoEmpleado) {
+		String tipo = "";
+		
+		if(tipoEmpleado.equalsIgnoreCase("Jefe Litografía")) 
+			tipo = "JEFE_LITOGRAFIA";
+		else if(tipoEmpleado.equalsIgnoreCase("Diseñador"))
+			tipo = "DISENADOR";
+		else if(tipoEmpleado.equalsIgnoreCase("Secretario(a)"))
+			tipo = "SECRETARIA";
+		else if(tipoEmpleado.equalsIgnoreCase("Contador(a)"))
+			tipo = "CONTADOR";
+		
+		return tipo;
 	}
 
 

@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="javafx.scene.control.ButtonType"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="javax.net.ssl.SSLPeerUnverifiedException"/>
-    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.excepciones.ClienteNoRegistradoException"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.excepciones.ProductoNoRegistradoException"/>
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
     <fullyQualifiedTypeName name="javafx.scene.control.SpinnerValueFactory"/>
     <fullyQualifiedTypeName name="javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory"/>
     <fullyQualifiedTypeName name="javafx.scene.input.KeyEvent"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="javafx.scene.control.Alert.AlertType"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.excepciones.DatosInvalidosException"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -60,4 +55,9 @@
     <fullyQualifiedTypeName name="java.net.URL"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="org.apache.commons.collections4.map.HashedMap"/>
+    <fullyQualifiedTypeName name="org.hibernate.mapping.Map"/>
+    <fullyQualifiedTypeName name="org.hsqldb.lib.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
 </qualifiedTypeNameHistroy>

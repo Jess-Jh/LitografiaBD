@@ -492,17 +492,17 @@
                                           <Image url="@../../../../../resource/Logo.png" />
                                        </image>
                                     </ImageView>
-                                    <Label layoutX="430.0" layoutY="31.0" text="Reportes">
+                                    <Label layoutX="430.0" layoutY="19.0" text="Reportes">
                                        <font>
-                                          <Font name="System Bold" size="20.0" />
+                                          <Font name="System Bold" size="30.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="106.0" layoutY="113.0" text="1. Listar los clientes registrados cuyo nombre contenga la letra: ">
+                                    <Label layoutX="106.0" layoutY="113.0" text="1. Listar los clientes registrados cuyo nombre contenga la palabra:">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtPrimerReporte" layoutX="561.0" layoutY="112.0" prefHeight="27.0" prefWidth="68.0" style="-fx-background-color: white; -fx-border-color: black;" />
+                                    <TextField fx:id="txtPrimerReporte" layoutX="584.0" layoutY="112.0" prefHeight="27.0" prefWidth="68.0" style="-fx-background-color: transparent; -fx-border-color: #000E68; -fx-border-width: 0px 0px 2px 0px;" />
                                     <Button fx:id="btnGenerarReporte" layoutX="671.0" layoutY="302.0" mnemonicParsing="false" onAction="#generarReporte" prefHeight="25.0" prefWidth="204.0" style="-fx-background-color: #000E68; -fx-background-radius: 20px;" text="Generar Reporte" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
@@ -511,7 +511,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
-                                    <RadioButton fx:id="rbtPrimerReporte" layoutX="79.0" layoutY="112.0" mnemonicParsing="false" opacity="0.9" prefHeight="27.0" prefWidth="477.0" textAlignment="CENTER">
+                                    <RadioButton fx:id="rbtPrimerReporte" layoutX="79.0" layoutY="112.0" mnemonicParsing="false" opacity="0.9" prefHeight="27.0" prefWidth="504.0" textAlignment="CENTER">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="groupReportes" />
                                        </toggleGroup>
@@ -522,6 +522,20 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </RadioButton>
+                                    <Label layoutX="106.0" layoutY="150.0" prefHeight="25.0" prefWidth="302.0" text="2. Listar los empleados con el cargo de :">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton fx:id="rbtReporte2" layoutX="79.0" layoutY="149.0" mnemonicParsing="false" opacity="0.9" prefHeight="27.0" prefWidth="311.0" textAlignment="CENTER" toggleGroup="$groupReportes">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </RadioButton>
+                                    <ComboBox fx:id="cmbReporte2" layoutX="398.0" layoutY="150.0" prefWidth="150.0" />
                                  </children>
                               </Pane>
                            </children></AnchorPane>

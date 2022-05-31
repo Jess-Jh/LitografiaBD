@@ -128,10 +128,17 @@ public class LitografiaController implements Initializable {
 
     @FXML
     private RadioButton rbtPrimerReporte;
+    
+    @FXML
+    private RadioButton rbtReporte2;
 
     @FXML
     private ComboBox<String> cmbClienteFactura;
     ObservableList<String> listaCmbClientes = FXCollections.observableArrayList();
+    
+    @FXML
+    private ComboBox<String> cmbReporte2;
+    ObservableList<String> listaCmbReporte2 = FXCollections.observableArrayList();
 
     @FXML
     private TableColumn<Cliente, String> columnApellidoCliente;
@@ -385,6 +392,14 @@ public class LitografiaController implements Initializable {
 			listaCmbClientes.add(cliente.getCedula());
 		}
 		cmbClienteFactura.setItems(listaCmbClientes);
+		
+		// Agregar datos al combo box del Reporte 2
+		listaCmbReporte2.add("Jefe Litografía");
+		listaCmbReporte2.add("Diseñador");
+		listaCmbReporte2.add("Secretario(a)");
+		listaCmbReporte2.add("Contador(a)");
+		
+		cmbReporte2.setItems(listaCmbReporte2);
 		
 	}
     
@@ -1074,17 +1089,20 @@ public class LitografiaController implements Initializable {
     
     @FXML
     void generarReporte(ActionEvent event) {
-    	
-    	if(txtPrimerReporte.getText() == null || txtPrimerReporte.getText().equals("") || txtPrimerReporte.getText().isEmpty()) {
-    		papeleriaAplicacion.mostrarMensaje("Notificación Primer reporte", "Pagar Reporte", "Escriba una letra o palabra para generar el reporte", AlertType.WARNING);
-    	} else {
-    		if(rbtPrimerReporte.isSelected()) {
-    			
-    			modelFactoryController.generarReporte1(txtPrimerReporte.getText());
-    			
-    		}
+    
+		if(rbtPrimerReporte.isSelected()) {
+			if(txtPrimerReporte.getText() == null || txtPrimerReporte.getText().equals("") || txtPrimerReporte.getText().isEmpty()) 
+				papeleriaAplicacion.mostrarMensaje("Notificación Primer reporte", "Primer Reporte", "Escriba una letra o palabra para generar el reporte", AlertType.WARNING);
+			else 
+				modelFactoryController.generarReporte1(txtPrimerReporte.getText());		
+		}
+		if(rbtReporte2.isSelected()) {
+			if(cmbReporte2.getValue() == null || cmbReporte2.getValue().equals("") || cmbReporte2.getValue().isEmpty()) 
+				papeleriaAplicacion.mostrarMensaje("Notificación Segundo reporte", "Segundo Reporte", "Seleccione un tipo de la lista para poder generar el reporte", AlertType.WARNING);
+			else 
+				modelFactoryController.generarReporte2(cmbReporte2.getValue());
     		
-    	}
+		}
 
     }
 

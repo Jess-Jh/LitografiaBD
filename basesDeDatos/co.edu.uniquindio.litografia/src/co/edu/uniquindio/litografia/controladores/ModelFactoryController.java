@@ -1,7 +1,5 @@
 package co.edu.uniquindio.litografia.controladores;
 
-import java.time.LocalDate;
-
 import co.edu.uniquindio.litografia.aplicacion.PapeleriaAplicacion;
 import co.edu.uniquindio.litografia.excepciones.ClienteException;
 import co.edu.uniquindio.litografia.excepciones.ClienteNoRegistradoException;
@@ -208,6 +206,10 @@ public class ModelFactoryController implements Runnable {
 	   
 	public void generarReporte1(String nombre) {
 		Persistencia.generarReporte1(nombre);
+	}
+
+	public void generarReporte2(String tipoEmpleado) {
+		Persistencia.generarReporte2(tipoEmpleado);
 	}
 
 
