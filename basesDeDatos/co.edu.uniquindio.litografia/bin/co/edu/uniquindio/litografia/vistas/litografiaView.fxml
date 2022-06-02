@@ -511,7 +511,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
-                                    <RadioButton fx:id="rbtPrimerReporte" layoutX="79.0" layoutY="112.0" mnemonicParsing="false" opacity="0.9" prefHeight="27.0" prefWidth="504.0" textAlignment="CENTER">
+                                    <RadioButton fx:id="rbtPrimerReporte" layoutX="79.0" layoutY="112.0" mnemonicParsing="false" opacity="0.9" prefHeight="27.0" prefWidth="407.0" textAlignment="CENTER">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="groupReportes" />
                                        </toggleGroup>
@@ -527,7 +527,7 @@
                                           <Font size="16.0" />
                                        </font>
                                     </Label>
-                                    <RadioButton fx:id="rbtReporte2" layoutX="79.0" layoutY="149.0" mnemonicParsing="false" opacity="0.9" prefHeight="27.0" prefWidth="311.0" textAlignment="CENTER" toggleGroup="$groupReportes">
+                                    <RadioButton fx:id="rbtReporte2" layoutX="79.0" layoutY="149.0" mnemonicParsing="false" opacity="0.9" prefHeight="27.0" prefWidth="264.0" textAlignment="CENTER" toggleGroup="$groupReportes">
                                        <font>
                                           <Font size="11.0" />
                                        </font>
@@ -536,6 +536,34 @@
                                        </cursor>
                                     </RadioButton>
                                     <ComboBox fx:id="cmbReporte2" layoutX="398.0" layoutY="150.0" prefWidth="150.0" />
+                                    <Label layoutX="106.0" layoutY="184.0" prefHeight="25.0" prefWidth="436.0" text="3. Listar los pedidos realizados por el empleado con cédula :">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton fx:id="rbtReporte3" layoutX="79.0" layoutY="183.0" mnemonicParsing="false" opacity="0.9" prefHeight="27.0" prefWidth="398.0" textAlignment="CENTER" toggleGroup="$groupReportes">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </RadioButton>
+                                    <ComboBox fx:id="cmbReporte3" layoutX="557.0" layoutY="184.0" prefWidth="150.0" />
+                                    <Label layoutX="107.0" layoutY="218.0" prefHeight="25.0" prefWidth="621.0" text="4. Listar los empleados y la cantidad de pedidos que realizaron al proveedor con id :">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton fx:id="rbtReporte4" layoutX="80.0" layoutY="217.0" mnemonicParsing="false" opacity="0.9" prefHeight="27.0" prefWidth="323.0" textAlignment="CENTER" toggleGroup="$groupReportes">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </RadioButton>
+                                    <ComboBox fx:id="cmbReporte4" layoutX="734.0" layoutY="218.0" prefWidth="150.0" />
                                  </children>
                               </Pane>
                            </children></AnchorPane>

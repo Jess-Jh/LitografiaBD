@@ -17,6 +17,7 @@ import co.edu.uniquindio.litografia.modelo.Producto;
 import co.edu.uniquindio.litografia.modelo.Proveedor;
 import co.edu.uniquindio.litografia.persistencia.Persistencia;
 import javafx.collections.ObservableList;
+import net.sf.jasperreports.engine.JRException;
 
 public class ModelFactoryController implements Runnable {
 
@@ -210,6 +211,14 @@ public class ModelFactoryController implements Runnable {
 
 	public void generarReporte2(String tipoEmpleado) {
 		Persistencia.generarReporte2(tipoEmpleado);
+	}
+
+	public void generarReporte3(String cedulaEmpleado) {
+		Persistencia.generarReporte3(cedulaEmpleado);		
+	}
+
+	public void generarReporte4(String idProveedor) {
+		Persistencia.generarReporte4(idProveedor);
 	}
 
 

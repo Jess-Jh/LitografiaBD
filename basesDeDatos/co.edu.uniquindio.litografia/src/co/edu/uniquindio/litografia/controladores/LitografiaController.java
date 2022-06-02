@@ -131,6 +131,12 @@ public class LitografiaController implements Initializable {
     
     @FXML
     private RadioButton rbtReporte2;
+    
+    @FXML
+    private RadioButton rbtReporte3;
+
+    @FXML
+    private RadioButton rbtReporte4;
 
     @FXML
     private ComboBox<String> cmbClienteFactura;
@@ -139,6 +145,14 @@ public class LitografiaController implements Initializable {
     @FXML
     private ComboBox<String> cmbReporte2;
     ObservableList<String> listaCmbReporte2 = FXCollections.observableArrayList();
+    
+    @FXML
+    private ComboBox<String> cmbReporte3;
+    ObservableList<String> listaCmbReporte3 = FXCollections.observableArrayList();
+
+    @FXML
+    private ComboBox<String> cmbReporte4;
+    ObservableList<String> listaCmbReporte4 = FXCollections.observableArrayList();
 
     @FXML
     private TableColumn<Cliente, String> columnApellidoCliente;
@@ -401,6 +415,17 @@ public class LitografiaController implements Initializable {
 		
 		cmbReporte2.setItems(listaCmbReporte2);
 		
+		// Agregar datos al combo box del Reporte 3
+		for (Empleado empleado : papeleria.getListaEmpleados()) {
+			listaCmbReporte3.add(empleado.getCedula());
+		}
+		cmbReporte3.setItems(listaCmbReporte3);
+
+		// Agregar datos al combo box del Reporte 4
+		for (Proveedor proveedor : papeleria.getListaProveedores()) {
+			listaCmbReporte4.add(proveedor.getId());
+		}
+		cmbReporte4.setItems(listaCmbReporte4);
 	}
     
 	/**
@@ -1101,7 +1126,18 @@ public class LitografiaController implements Initializable {
 				papeleriaAplicacion.mostrarMensaje("Notificación Segundo reporte", "Segundo Reporte", "Seleccione un tipo de la lista para poder generar el reporte", AlertType.WARNING);
 			else 
 				modelFactoryController.generarReporte2(cmbReporte2.getValue());
-    		
+		}
+		if(rbtReporte3.isSelected()) {
+			if(cmbReporte3.getValue() == null || cmbReporte3.getValue().equals("") || cmbReporte3.getValue().isEmpty()) 
+				papeleriaAplicacion.mostrarMensaje("Notificación Tercer reporte", "Tercer Reporte", "Seleccione una cédula de la lista para poder generar el reporte", AlertType.WARNING);
+			else 
+				modelFactoryController.generarReporte3(cmbReporte3.getValue());
+		}
+		if(rbtReporte4.isSelected()) {
+			if(cmbReporte4.getValue() == null || cmbReporte4.getValue().equals("") || cmbReporte4.getValue().isEmpty()) 
+				papeleriaAplicacion.mostrarMensaje("Notificación Cuarto reporte", "Cuarto Reporte", "Seleccione un id de la lista para poder generar el reporte", AlertType.WARNING);
+			else 
+				modelFactoryController.generarReporte4(cmbReporte4.getValue());
 		}
 
     }

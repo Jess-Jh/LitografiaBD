@@ -447,17 +447,15 @@ public class Persistencia {
 	}
 
 	 // -------------------------------------------------------------- REPORTES -------------------------------------------------------------------------->>
-	   
-	public static void generarReporte1(String nombre) {	
+	
+	private static void cargarReporte(String nombreParametro, String valorParametro, String nombreArchivoJasper) {
 		
-		String filtro = "%"+ nombre +"%";
-			
 		try {
 			JasperReport reporte = null;
-			File file = new File("src/resource/ReporteSimple1.jasper");
+			File file = new File("src/resource/"+nombreArchivoJasper+".jasper");
 
 			Map<String, Object> parametro = new HashMap<>();
-			parametro.put("nombre", filtro);
+			parametro.put(nombreParametro, valorParametro);
 			
 			// Cargando el archivo jasper
 			reporte = (JasperReport) JRLoader.loadObject(file);
@@ -477,39 +475,18 @@ public class Persistencia {
 		} catch(Exception e) {
 			System.out.println("Error " + e);			
 		}
+	}
+	   
+	public static void generarReporte1(String nombre) {	
 		
+		String filtro = "%"+ nombre +"%";
+		cargarReporte("nombre", filtro, "ReporteSimple1");
 	}
 
 	public static void generarReporte2(String tipoEmpleado) {
 		
 		String filtroTipoEmpleado = tipo(tipoEmpleado);
-				
-		try {
-			JasperReport reporte = null;
-			File file = new File("src/resource/Reporte2.jasper");
-
-			Map<String, Object> parametro = new HashMap<>();
-			parametro.put("tipo", filtroTipoEmpleado);
-			
-			// Cargando el archivo jasper
-			reporte = (JasperReport) JRLoader.loadObject(file);
-
-			// Generando la información del reporte
-			JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro, con);
-			
-			// Vista del reporte
-			JasperViewer view = new JasperViewer(jprint, false);
-			
-			JFrame.setDefaultLookAndFeelDecorated(true);
-			
-			view.setVisible(true);
-			
-		} catch (JRException e) {
-			System.out.println("Error al generar reporte " + e);
-		} catch(Exception e) {
-			System.out.println("Error " + e);			
-		}
-		
+		cargarReporte("tipo", filtroTipoEmpleado, "Reporte2");
 	}
 
 	private static String tipo(String tipoEmpleado) {
@@ -525,6 +502,15 @@ public class Persistencia {
 			tipo = "CONTADOR";
 		
 		return tipo;
+	}
+
+	public static void generarReporte3(String cedulaEmpleado) {
+		cargarReporte("idEmpleado", cedulaEmpleado, "Reporte3");
+	}
+
+	public static void generarReporte4(String idProveedor) {
+		cargarReporte("idProveedor", idProveedor, "Reporte4");
+		
 	}
 
 
