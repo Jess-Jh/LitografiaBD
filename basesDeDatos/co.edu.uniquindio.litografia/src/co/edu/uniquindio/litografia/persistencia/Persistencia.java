@@ -12,6 +12,7 @@ import java.util.Map;
 import javax.swing.JFrame;
 
 import co.edu.uniquindio.litografia.modelo.Cliente;
+import co.edu.uniquindio.litografia.modelo.Diseno;
 import co.edu.uniquindio.litografia.modelo.Empleado;
 import co.edu.uniquindio.litografia.modelo.Factura;
 import co.edu.uniquindio.litografia.modelo.Papeleria;
@@ -276,7 +277,13 @@ public class Persistencia {
 	public static void guardarFactura(String idFactura, String fecha, String cliente) {
 						
 		try {
-			String insertFactura = "insert into factura (idFactura, fecha, precio, idCliente) "
+			// Habilitar la foreign_key
+			Statement st = con.createStatement();
+			String updateFacturaProducto = "set foreign_key_checks=0; ";
+			int flag = st.executeUpdate(updateFacturaProducto);
+			if(flag >= 0) System.out.println("foreign_key_checks!");
+			
+			String insertFactura = "insert into factura (idFactura, fecha, precio, Cliente_cedulaCliente) "
 								  + "values (?, ?, ?, ?)";
 			PreparedStatement pst = con.prepareStatement(insertFactura);
 			
@@ -307,7 +314,7 @@ public class Persistencia {
 			while(rs.next()) {
 				
 				for (Cliente cliente : papeleria.getListaClientes()) {
-					if(cliente.getCedula().equalsIgnoreCase(rs.getString("idCliente")))
+					if(cliente.getCedula().equalsIgnoreCase(rs.getString("Cliente_cedulaCliente")))
 						clienteFactura = cliente;
 				}
 				factura = new Factura(rs.getString("idFactura"), rs.getString("fecha"), clienteFactura, clienteFactura.getCedula());
@@ -412,7 +419,7 @@ public class Persistencia {
 				if(flag >= 0) System.out.println("foreign_key_checks!");
 				
 				String insertFacturaProducto = "insert into facturaproducto(Producto_idProducto, Factura_idFactura, descripcion) "
-						+ "values (?, ?, ?)";
+						+ "values (?, ?, ?)"; 
 				
 				PreparedStatement pst = con.prepareStatement(insertFacturaProducto);
 				
@@ -426,6 +433,26 @@ public class Persistencia {
 			} catch (SQLException e) {
 				System.out.println("Error al almacenar la factura del producto en la base de datos " + e.getMessage());
 			}
+		}
+	}
+	
+	public static void cargarDatosDisenos(Papeleria papeleria) {
+		Diseno diseno;
+		String selectDiseno = "select * from diseno";
+		
+		Statement st;
+		try {
+			st = con.createStatement();
+			ResultSet rs = st.executeQuery(selectDiseno);
+			
+			while(rs.next()) {
+								
+				diseno = new Diseno(rs.getString("idDiseno"), rs.getString("tipo"), rs.getString("tamano"));
+				papeleria.getListaDisenos().add(diseno);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("Error al cargar los disenos de la base de datos " + e.getMessage());
 		}
 	}
 
@@ -510,6 +537,65 @@ public class Persistencia {
 
 	public static void generarReporte4(String idProveedor) {
 		cargarReporte("idProveedor", idProveedor, "Reporte4");
+	}
+
+	public static void generarReporte5() {
+		cargarReporte(null, null, "Reporte5");		
+	}
+
+	public static void generarReporte6() {
+		cargarReporte(null, null, "Reporte6");				
+	}
+
+	public static void generarReporte7(String tipoProducto1, String tipoProducto2, String tipoProducto3) {
+		String tipoDiseno = "d.tipo in ('"+ tipoProducto1 + "', '" + tipoProducto2 + "', '" + tipoProducto3 + "')";
+		cargarReporte("tipoDiseno", tipoDiseno, "Reporte7");
+	}
+	public static void generarReporte7(String tipoProducto1, String tipoProducto2) {
+		String tipoDiseno = "d.tipo in ('" + tipoProducto1 + "', '" + tipoProducto2 + "')";
+		cargarReporte("tipoDiseno", tipoDiseno, "Reporte7");
+	}
+	public static void generarReporte7(String tipoProducto1) {
+		String tipoDiseno = "d.tipo in ('" + tipoProducto1 + "')";
+		cargarReporte("tipoDiseno", tipoDiseno, "Reporte7");
+	}
+	
+	public static void generarReporte8() {
+		cargarReporte(null, null, "Reporte8");		
+	}
+
+	public static void generarReporte9(String nombreProveedor) {
+		cargarReporte("nombreProveedor", nombreProveedor, "Reporte9");
+	}
+
+	public static void generarReporte10(String rangoPrecio, String nombreCliente) {
+		
+		try {
+			JasperReport reporte = null;
+			File file = new File("src/resource/Reporte10.jasper");
+
+			Map<String, Object> parametro = new HashMap<>();
+			parametro.put("rangoPrecio", rangoPrecio);
+			parametro.put("nombreCliente", nombreCliente);
+			
+			// Cargando el archivo jasper
+			reporte = (JasperReport) JRLoader.loadObject(file);
+
+			// Generando la información del reporte
+			JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro, con);
+			
+			// Vista del reporte
+			JasperViewer view = new JasperViewer(jprint, false);
+			
+			JFrame.setDefaultLookAndFeelDecorated(true);
+			
+			view.setVisible(true);
+			
+		} catch (JRException e) {
+			System.out.println("Error al generar reporte " + e);
+		} catch(Exception e) {
+			System.out.println("Error " + e);			
+		}
 		
 	}
 

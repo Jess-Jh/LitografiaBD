@@ -17,7 +17,6 @@ import co.edu.uniquindio.litografia.modelo.Producto;
 import co.edu.uniquindio.litografia.modelo.Proveedor;
 import co.edu.uniquindio.litografia.persistencia.Persistencia;
 import javafx.collections.ObservableList;
-import net.sf.jasperreports.engine.JRException;
 
 public class ModelFactoryController implements Runnable {
 
@@ -51,6 +50,7 @@ public class ModelFactoryController implements Runnable {
 		Persistencia.cargarDatosProveedoor(papeleria);
 		Persistencia.cargarDatosFactura(papeleria);
 		Persistencia.cargarDatosEmpleados(papeleria);
+		Persistencia.cargarDatosDisenos(papeleria);
 	}
 
 	@Override
@@ -219,6 +219,35 @@ public class ModelFactoryController implements Runnable {
 
 	public void generarReporte4(String idProveedor) {
 		Persistencia.generarReporte4(idProveedor);
+	}
+
+	public void generarReporte5() {
+		Persistencia.generarReporte5();		
+	}
+
+	public void generarReporte6() {
+		Persistencia.generarReporte6();				
+	}
+
+	public void generarReporte7(String tipoProducto1, String tipoProducto2, String tipoProducto3) {
+		Persistencia.generarReporte7(tipoProducto1, tipoProducto2, tipoProducto3);						
+	}
+	public void generarReporte7(String tipoProducto1, String tipoProducto2) {
+		Persistencia.generarReporte7(tipoProducto1, tipoProducto2);						
+	}
+	public void generarReporte7(String tipoProducto1) {
+		Persistencia.generarReporte7(tipoProducto1);						
+	}
+	public void generarReporte8() {
+		Persistencia.generarReporte8();						
+	}
+
+	public void generarReporte9(String nombreProveedor) {
+		Persistencia.generarReporte9(nombreProveedor);	
+	}
+
+	public void generarReporte10(String rangoPrecio, String nombreCliente) {
+		Persistencia.generarReporte10(rangoPrecio, nombreCliente);	
 	}
 
 

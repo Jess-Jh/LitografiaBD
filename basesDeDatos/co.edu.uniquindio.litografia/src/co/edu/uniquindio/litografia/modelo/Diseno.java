@@ -10,8 +10,7 @@ public class Diseno {
 	private ArrayList<Factura> listaFacturas;
 	private ArrayList<EspecificacionDiseno> listaEspecificacionDisenos;
 	
-	public Diseno(String id, String tipo, String tamano, ArrayList<Factura> listaFacturas,
-			ArrayList<EspecificacionDiseno> listaEspecificacionDisenos) {
+	public Diseno(String id, String tipo, String tamano) {
 		this.id = id;
 		this.tipo = tipo;
 		this.tamano = tamano;

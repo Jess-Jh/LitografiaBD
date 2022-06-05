@@ -3,6 +3,7 @@ package co.edu.uniquindio.litografia.controladores;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.litografia.aplicacion.PapeleriaAplicacion;
@@ -15,7 +16,9 @@ import co.edu.uniquindio.litografia.excepciones.ProductoNoRegistradoException;
 import co.edu.uniquindio.litografia.excepciones.ProveedorException;
 import co.edu.uniquindio.litografia.excepciones.ProveedorNoRegistradoException;
 import co.edu.uniquindio.litografia.modelo.Cliente;
+import co.edu.uniquindio.litografia.modelo.Diseno;
 import co.edu.uniquindio.litografia.modelo.Empleado;
+import co.edu.uniquindio.litografia.modelo.EspecificacionDiseno;
 import co.edu.uniquindio.litografia.modelo.Factura;
 import co.edu.uniquindio.litografia.modelo.Papeleria;
 import co.edu.uniquindio.litografia.modelo.Producto;
@@ -139,6 +142,24 @@ public class LitografiaController implements Initializable {
     private RadioButton rbtReporte4;
 
     @FXML
+    private RadioButton rbtReporte5;
+    
+    @FXML
+    private RadioButton rbtReporte6;
+    
+    @FXML
+    private RadioButton rbtReporte7;
+    
+    @FXML
+    private RadioButton rbtReporte8;
+    
+    @FXML
+    private RadioButton rbtReporte9;
+    
+    @FXML
+    private RadioButton rbtReporte10;
+
+    @FXML
     private ComboBox<String> cmbClienteFactura;
     ObservableList<String> listaCmbClientes = FXCollections.observableArrayList();
     
@@ -153,6 +174,27 @@ public class LitografiaController implements Initializable {
     @FXML
     private ComboBox<String> cmbReporte4;
     ObservableList<String> listaCmbReporte4 = FXCollections.observableArrayList();
+    
+    @FXML
+    private ComboBox<String> cmbReporte71;
+    ObservableList<String> listaCmbReporte71 = FXCollections.observableArrayList();
+    @FXML
+    private ComboBox<String> cmbReporte72;
+    ObservableList<String> listaCmbReporte72 = FXCollections.observableArrayList();
+    @FXML
+    private ComboBox<String> cmbReporte73;
+    ObservableList<String> listaCmbReporte73 = FXCollections.observableArrayList();
+
+    @FXML
+    private ComboBox<String> cmbReporte9;
+    ObservableList<String> listaCmbReporte9 = FXCollections.observableArrayList();
+
+    @FXML
+    private ComboBox<String> cmbReporte101;
+    ObservableList<String> listaCmbReporte101 = FXCollections.observableArrayList();
+    @FXML
+    private ComboBox<String> cmbReporte102;
+    ObservableList<String> listaCmbReporte102 = FXCollections.observableArrayList();
 
     @FXML
     private TableColumn<Cliente, String> columnApellidoCliente;
@@ -426,6 +468,35 @@ public class LitografiaController implements Initializable {
 			listaCmbReporte4.add(proveedor.getId());
 		}
 		cmbReporte4.setItems(listaCmbReporte4);
+		
+		// Agregar datos al combo box del reporte 7
+		for (Diseno ed : papeleria.getListaDisenos()){
+			listaCmbReporte71.add(ed.getTipo());
+			listaCmbReporte72.add(ed.getTipo());
+			listaCmbReporte73.add(ed.getTipo());
+		}
+		cmbReporte71.setItems(listaCmbReporte71);
+		cmbReporte72.setItems(listaCmbReporte72);
+		cmbReporte73.setItems(listaCmbReporte73);	
+		
+		// Agregar datos al combo box del Reporte 9
+		for (Proveedor proveedor : papeleria.getListaProveedores()) {
+			listaCmbReporte9.add(proveedor.getNombre());
+		}
+		cmbReporte9.setItems(listaCmbReporte9);
+		
+		// Agregar datos al combo box del Reporte 101
+		for (int i = 1; i <= 10; i++) {
+			listaCmbReporte101.add(i+"0000");			
+		}
+		cmbReporte101.setItems(listaCmbReporte101);
+		
+		// Agregar datos al combo box del Reporte 102
+		for (Cliente cliente : papeleria.getListaClientes()) {
+			listaCmbReporte102.add(cliente.getNombre());
+		}
+		cmbReporte102.setItems(listaCmbReporte102);
+		
 	}
     
 	/**
@@ -1119,27 +1190,60 @@ public class LitografiaController implements Initializable {
 			if(txtPrimerReporte.getText() == null || txtPrimerReporte.getText().equals("") || txtPrimerReporte.getText().isEmpty()) 
 				papeleriaAplicacion.mostrarMensaje("Notificación Primer reporte", "Primer Reporte", "Escriba una letra o palabra para generar el reporte", AlertType.WARNING);
 			else 
-				modelFactoryController.generarReporte1(txtPrimerReporte.getText());		
-		}
-		if(rbtReporte2.isSelected()) {
+				modelFactoryController.generarReporte1(txtPrimerReporte.getText());	
+			
+		} else if(rbtReporte2.isSelected()) {
 			if(cmbReporte2.getValue() == null || cmbReporte2.getValue().equals("") || cmbReporte2.getValue().isEmpty()) 
 				papeleriaAplicacion.mostrarMensaje("Notificación Segundo reporte", "Segundo Reporte", "Seleccione un tipo de la lista para poder generar el reporte", AlertType.WARNING);
 			else 
 				modelFactoryController.generarReporte2(cmbReporte2.getValue());
-		}
-		if(rbtReporte3.isSelected()) {
+			
+		} else if(rbtReporte3.isSelected()) {
 			if(cmbReporte3.getValue() == null || cmbReporte3.getValue().equals("") || cmbReporte3.getValue().isEmpty()) 
 				papeleriaAplicacion.mostrarMensaje("Notificación Tercer reporte", "Tercer Reporte", "Seleccione una cédula de la lista para poder generar el reporte", AlertType.WARNING);
 			else 
 				modelFactoryController.generarReporte3(cmbReporte3.getValue());
-		}
-		if(rbtReporte4.isSelected()) {
+			
+		} else if(rbtReporte4.isSelected()) {
 			if(cmbReporte4.getValue() == null || cmbReporte4.getValue().equals("") || cmbReporte4.getValue().isEmpty()) 
 				papeleriaAplicacion.mostrarMensaje("Notificación Cuarto reporte", "Cuarto Reporte", "Seleccione un id de la lista para poder generar el reporte", AlertType.WARNING);
 			else 
 				modelFactoryController.generarReporte4(cmbReporte4.getValue());
+			
+		} else if(rbtReporte5.isSelected()) {
+			modelFactoryController.generarReporte5();
+			
+		} else if(rbtReporte6.isSelected()) {
+			modelFactoryController.generarReporte6();
+			
+		} else if(rbtReporte7.isSelected()) {
+			
+			if(cmbReporte71.getValue() != null && cmbReporte72.getValue() != null && cmbReporte73.getValue() != null)
+				modelFactoryController.generarReporte7(cmbReporte71.getValue(), cmbReporte72.getValue(), cmbReporte73.getValue());
+			else if(cmbReporte71.getValue() != null && cmbReporte72.getValue() != null)
+				modelFactoryController.generarReporte7(cmbReporte71.getValue(), cmbReporte72.getValue());
+			else if(cmbReporte71.getValue() != null)
+				modelFactoryController.generarReporte7(cmbReporte71.getValue());
+			else 
+				papeleriaAplicacion.mostrarMensaje("Notificación Septimo reporte", "Septimo Reporte", "Seleccione un tipo de diseno de la lista para poder generar el reporte", AlertType.WARNING);
+			
+		} else if(rbtReporte8.isSelected()) {
+			modelFactoryController.generarReporte8();
+			
+		} else if(rbtReporte9.isSelected()) {
+			if(cmbReporte9.getValue() == null || cmbReporte9.getValue().equals("") || cmbReporte9.getValue().isEmpty()) 
+				papeleriaAplicacion.mostrarMensaje("Notificación noveno reporte", "Noveno Reporte", "Seleccione un nombre de la lista para poder generar el reporte", AlertType.WARNING);
+			else 
+				modelFactoryController.generarReporte9(cmbReporte9.getValue());
+			
+		} else if(rbtReporte10.isSelected()) {
+			if(cmbReporte101.getValue() == null || cmbReporte101.getValue().equals("") || cmbReporte101.getValue().isEmpty() 
+				|| cmbReporte102.getValue() == null || cmbReporte102.getValue().equals("") || cmbReporte102.getValue().isEmpty()) 
+				papeleriaAplicacion.mostrarMensaje("Notificación Décimo reporte", "Décimo Reporte", "Seleccione valores de ambos campos para poder generar el reporte", AlertType.WARNING);
+			else 
+				modelFactoryController.generarReporte10(cmbReporte101.getValue(), cmbReporte102.getValue());
+		
 		}
-
     }
 
 

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.excepciones.ProductoNoRegistradoException"/>
-    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
     <fullyQualifiedTypeName name="javafx.scene.control.SpinnerValueFactory"/>
     <fullyQualifiedTypeName name="javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory"/>
     <fullyQualifiedTypeName name="javafx.scene.input.KeyEvent"/>
@@ -27,7 +25,6 @@
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Proveedor"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Factura"/>
     <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.TipoEmpleado"/>
-    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.persistencia.Persistencia"/>
     <fullyQualifiedTypeName name="javafx.scene.control.ToggleGroup"/>
     <fullyQualifiedTypeName name="javafx.scene.control.RadioButton"/>
     <fullyQualifiedTypeName name="net.sf.jasperreports.engine.util.JRLoader"/>
@@ -60,4 +57,7 @@
     <fullyQualifiedTypeName name="org.hsqldb.lib.HashMap"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.EspecificacionDiseno"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.modelo.Diseno"/>
+    <fullyQualifiedTypeName name="co.edu.uniquindio.litografia.persistencia.Persistencia"/>
 </qualifiedTypeNameHistroy>
