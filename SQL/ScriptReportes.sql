@@ -50,15 +50,15 @@ group by c.cedulaCliente
 order by cantidadCompra desc;
 
 -- REPORTE 9
-select d.idDevolucion, d.tipo, count(dp.cantidad) as cantidadDevoluciones
+select d.idDevolucion, d.tipo, sum(dp.cantidad) as cantidadDevoluciones
 from devolucion d, devolucionproducto dp
 where d.idDevolucion = dp.Devolucion_idDevolucion
 group by d.idDevolucion
-having count(dp.cantidad) > (select count(m.cantidad) 
+having sum(dp.cantidad) > (select sum(m.cantidad) 
 							from materiaprima m, proveedormateriaprima pmp, proveedor p
                             where m.idMateriaPrima = pmp.MateriaPrima_idMateriaPrima
                             and pmp.Proveedor_idProveedor = p.idProveedor
-                            and p.nombre = 'Deerdre')
+                            and p.nombre = 'Gertruda')
 order by cantidadDevoluciones desc;
 
 -- REPORTE 10

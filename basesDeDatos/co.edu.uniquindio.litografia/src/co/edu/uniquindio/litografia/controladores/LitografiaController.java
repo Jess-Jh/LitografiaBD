@@ -1243,6 +1243,9 @@ public class LitografiaController implements Initializable {
 			else 
 				modelFactoryController.generarReporte10(cmbReporte101.getValue(), cmbReporte102.getValue());
 		
+		} else {
+			papeleriaAplicacion.mostrarMensaje("Notificación reportes", "Reportes", "Seleccione algún reporte para generarlo", AlertType.WARNING);
+			
 		}
     }
 
