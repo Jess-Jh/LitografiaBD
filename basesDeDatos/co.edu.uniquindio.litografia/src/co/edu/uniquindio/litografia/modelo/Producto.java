@@ -55,6 +55,12 @@ public class Producto {
 	public void setListaFacturas(ArrayList<Factura> listaFacturas) {
 		this.listaFacturas = listaFacturas;
 	}
+
+	@Override
+	public String toString() {
+		return "Producto [id=" + id + ", tipo=" + tipo + ", precio=" + precio + ", cantidad=" + cantidad
+				+ ", listaFacturas=" + listaFacturas + "]";
+	}
 	
 	
 	

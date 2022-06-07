@@ -883,11 +883,11 @@ public class LitografiaController implements Initializable {
     	String filtroProducto = txtFiltrarProducto.getText();
     	
     	if(filtroProducto.isEmpty()) {
-    		tableViewProductos1.setItems(listadoProductos1);
+    		tableViewProductos1.setItems(listadoProductos);
     	} else {
     		filtroListadoProductos1.clear();
     		
-    		for (Producto producto: listadoProductos1) {
+    		for (Producto producto: listadoProductos) {
 				if(producto.toString().toLowerCase().contains(filtroProducto.toLowerCase())) {
 					filtroListadoProductos1.add(producto);
 				}
